@@ -1,0 +1,93 @@
+.carousel-3d {
+    display: flex;
+    perspective: 1200px;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+    
+  }
+  
+  .carousel-item {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    margin: 0;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 1s ease;
+    backface-visibility: hidden;
+    z-index: 1; /* Asegúrate de que esté en la parte superior */
+    cursor: pointer; /* Agregar para que sea claro que es clickeable */
+}
+
+
+  
+  .carousel-item img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .hotel-description {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .hotel-description h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hotel-description p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .stars {
+    color: gold;
+    margin-top: 5px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    image-rendering: auto; /* O prueba con crisp-edges o high-quality */
+}
+nav {
+    z-index: 10; /* Un z-index alto para que esté encima del carrusel */
+}
+
+nav a {
+    color: inherit; /* Hereda el color del elemento padre */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.nav__links .link a {
+    color: #000; /* Cambia esto al color que desees */
+    text-decoration: none; /* Sin subrayado */
+}
+
+
