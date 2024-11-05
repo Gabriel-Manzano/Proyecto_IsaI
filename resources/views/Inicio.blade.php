@@ -10,6 +10,7 @@
 @section('content')
 
 <body>
+
     @session('exito')
         <script>
             Swal.fire({
@@ -186,6 +187,12 @@
 
         setInterval(rotateCarousel, 2000); // Cambiar cada 3 segundos
     </script>
+    <x-hotel-card image="images/hoteles/hotel-1.jpg" name="Hotel Santorini" location="Santorini, Greece" rating="5"
+        link="{{ route('hotel.show', ['id' => 1]) }}" />
+    <x-hotel-card image="images/hoteles/hotel-2.jpg" name="Hotel Vernazza" location="San Francisco, USA" rating="4"
+        link="{{ route('hotel.show', ['id' => 2]) }}" />
+    <x-hotel-card image="images/hoteles/hotel-3.jpg" name="Hotel San Francisco" location="San Francisco, USA" rating="3"
+        link="{{ route('hotel.show', ['id' => 3]) }}" />
 
 </body>
 

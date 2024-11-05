@@ -24,6 +24,7 @@
     <header>
         <br>
         <br>
+        
         <h1>{{ $hotel['name'] }}</h1>
         <div class="stars">
             @for ($i = 1; $i <= 5; $i++)
