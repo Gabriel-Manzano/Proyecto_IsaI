@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\validadorHotel;
+use App\Http\Requests\validadorLogin;
+use App\Http\Requests\validadorPassword;
+use App\Http\Requests\validadorPerfil;
+use App\Http\Requests\validadorRegistro;
 use Illuminate\Http\Request;
+use Validator;
 
 class ControladorVistas extends Controller
 {
@@ -52,17 +57,10 @@ class ControladorVistas extends Controller
         return view('auth.login'); // Carga la vista de login
     }
 
-    public function procesarLogin(Request $request)
+    public function procesarCliente(validadorLogin $peticionValidada)
     {
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            // Si las credenciales son correctas, redirige al usuario al inicio o a otra ruta deseada
-            return redirect()->intended(route('inicio'));
-        }
-
-        // Si las credenciales son incorrectas, redirige de nuevo con un mensaje de error
-        return redirect()->route('login')->withErrors(['email' => 'Las credenciales no coinciden']);
+        session()->Flash('exito');
+        return to_route('inicio');
     }
 
     public function passwordAuth()
@@ -83,25 +81,11 @@ class ControladorVistas extends Controller
     }
 
     // Procesa el formulario de registro
-    public function procesarRegistro(Request $request)
+    public function procesarRegistro(validadorRegistro $peticionValidada)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-
-        // Registra al usuario
-        $user = User::create([
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'password' => bcrypt($validatedData['password']),
-        ]);
-
-        Auth::login($user);
-
-        // Redirige a la página de verificación
-        return redirect()->route('verification.notice');
+        $usuario = $peticionValidada->input('txtnamereg');
+        session()->Flash('exito', 'Se ha registrado al usuario ' . $usuario.' con éxito.');
+        return to_route('login');
     }
 
     // Reenvía el correo de verificación
@@ -109,5 +93,24 @@ class ControladorVistas extends Controller
     {
         Auth::user()->sendEmailVerificationNotification();
         return back()->with('resent', true);
+    }
+
+    public function procesarHotel(validadorHotel $peticionValidada)
+    {
+        session()->Flash('exito');
+        return to_route('inicio');
+    }
+
+    public function procesarPerfil(validadorPerfil $peticionValidada)
+    {
+        $usuario = $peticionValidada->input('txtnameper');
+        session()->Flash('exito', 'Se actualizaron los datos del usuario ' . $usuario);
+        return to_route('perfil');
+    }
+
+    public function procesarPassword(validadorPassword $peticionValidada)
+    {
+        session()->Flash('exito');
+        return to_route('password');
     }
 }

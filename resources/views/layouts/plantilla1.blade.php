@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,14 +9,14 @@
     <!-- CDN de Remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <!-- Ruta al archivo CSS en Laravel -->
-    <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/styles_carousel.css') }}" />
+    <!-- Archivos CSS específicos -->
+    @stack('styles')
 
-    <title>@yield('title', 'Turista sin Maps')</title>
+    <title>@yield('title') - TURISTA SIN MAPS</title>
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav>
         <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
         <ul class="nav__links">
@@ -25,11 +25,16 @@
             <a href="{{ route('comparar') }}">Comparaciones</a>
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('perfil') }}">Perfil</a>
+            <a href="{{ route('busquedaAvanzada') }}">Búsqueda Avanzada</a>
         </ul>
     </nav>
 
-    @yield('content')
+    <!-- Contenido de cada vista -->
+    <main>
+        @yield('content')
+    </main>
 
+    <!-- Footer -->
     <footer>
         <div class="section__container">
             <h4>Turista sin Maps</h4>
@@ -43,7 +48,9 @@
         </div>
     </footer>
 
+    <!-- Scripts personalizados -->
     @stack('scripts')
+
 </body>
 
 </html>

@@ -25,18 +25,22 @@
                                         <h4 class="mt-1 mb-5 pb-1" style="font-style: italic;">Turista sin maps</h4>
                                     </div>
 
-                                    <form action="/">
+                                    <form action="/enviarLogin" method="POST">
+
                                         @csrf
+                                        
                                         <p>Bienvenido!!!, Porfavor Ingrese sus Datos :D</p>
 
                                         <div class="form-outline mb-4">
-                                            <input type="email" name="email" id="form2Example11" class="form-control" placeholder="Correo electrónico" required />
+                                            <input type="text" name="txtemaillog" id="form2Example11" class="form-control" placeholder="Correo electrónico" value="{{ old('txtemaillog') }}">
                                             <label class="form-label" for="form2Example11">Correo</label>
+                                            <small class="fst-italic text-danger">{{$errors->first('txtemaillog')}}</small>
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" name="password" id="form2Example22" class="form-control" required />
+                                            <input type="password" name="txtpasswordlog" id="form2Example22" class="form-control" value="{{ old('txtpasswordlog') }}">
                                             <label class="form-label" for="form2Example22">Contraseña</label>
+                                            <small class="fst-italic text-danger">{{$errors->first('txtpasswordlog')}}</small>
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
@@ -49,6 +53,7 @@
                                             <a href="{{ route('register') }}" class="btn btn-outline-danger">Registrarse</a>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">

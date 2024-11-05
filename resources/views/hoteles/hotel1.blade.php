@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.plantilla1')
+
+@section('title', 'Inicio')
 
 <head>
     <meta charset="UTF-8">
@@ -12,18 +13,9 @@
 
 <body>
 
-    <nav>
-        <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
-        <ul class="nav__links">
-            <a href="{{ route('inicio') }}">Home</a>
-            <a href="{{ route('faqs') }}">FAQ's</a>
-            <a href="{{ route('comparar') }}">Comparaciones</a>
-            <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('perfil') }}">Perfil</a>
-        </ul>
-    </nav>
-
     <header>
+        <br>
+        <br>
         <h1>{{ $hotel['name'] }}</h1>
         <div class="stars">
             @for ($i = 1; $i <= 5; $i++)
@@ -91,35 +83,30 @@
 
     <section class="hotel-reservation">
         <h2>Reserva tu Estancia</h2>
-        <form action="{{ route('login') }}" method="POST">
+
+        <form action="/enviarHotel" method="POST">
+
             @csrf
+
             <label for="check-in">Fecha de Check-in:</label>
-            <input type="date" id="check-in" name="check_in" required>
+            <input type="date" id="check-in" name="datcheckin" value="{{ old('datcheckin') }}">
+            <small class="fst-italic text-danger">{{$errors->first('datcheckin')}}</small>
 
             <label for="check-out">Fecha de Check-out:</label>
-            <input type="date" id="check-out" name="check_out" required>
+            <input type="date" id="check-out" name="datcheckout" value="{{ old('datcheckout') }}">
+            <small class="fst-italic text-danger">{{$errors->first('datcheckout')}}</small>
 
             <label for="guests">Número de Huéspedes:</label>
-            <input type="number" id="guests" name="guests" min="1" required>
+            <input type="text" id="guests" name="txthuespedes" value="{{ old('txthuespedes') }}">
+            <small class="fst-italic text-danger">{{$errors->first('txthuespedes')}}</small>
 
             <button type="submit" class="reserve-button">Confirmar Reserva</button>
+
         </form>
+
     </section>
-
-    <footer>
-        <div class="section__container">
-            <h4>Turista sin Maps</h4>
-            <div class="social__icons">
-                <span><i class="ri-facebook-fill"></i></span>
-                <span><i class="ri-twitter-fill"></i></span>
-                <span><i class="ri-instagram-line"></i></span>
-                <span><i class="ri-linkedin-fill"></i></span>
-            </div>
-            <p>Travel makes one modest. You see what a tiny place you occupy in the world.</p>
-        </div>
-    </footer>
-
+    
     <script src="{{ asset('js/carousel.js') }}"></script>
 </body>
 
-</html>
+@section('content')

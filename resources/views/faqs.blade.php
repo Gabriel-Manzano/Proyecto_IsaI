@@ -1,32 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layouts.plantilla1')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+@section('title', 'Preguntas Frecuentes')
 
-    <!-- CDN de Remixicon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet" />
-
-    <!-- Ruta al archivo CSS en Laravel -->
+@push('styles')
     <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/styles_faqs.css') }}">
+@endpush
 
-    <title>Preguntas Frecuentes - TURISTA SIN MAPS</title>
-</head>
-
+@section('content')
+<br>
+<br>
 <body>
-    <nav>
-        <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
-        <ul class="nav__links">
-            <a href="{{ route('inicio') }}">Home</a>
-            <a href="{{ route('faqs') }}">FAQ's</a>
-            <a href="{{ route('comparar') }}">Comparaciones</a>
-            <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('perfil') }}">Perfil</a>
-        </ul>
-    </nav>
     <!-- Vista de Preguntas Frecuentes -->
     <div class="faq-container">
         <h2>Preguntas Frecuentes</h2>
@@ -85,5 +69,13 @@
         }
     </script>
 </body>
+@endsection
 
-</html>
+@push('scripts')
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            answer.style.display = (answer.style.display === "block") ? "none" : "block";
+        }
+    </script>
+@endpush

@@ -30,13 +30,15 @@
                                         <h4 class="mt-1 mb-5 pb-1" style="font-style: italic;">Restablecer Contraseña</h4>
                                     </div>
 
-                                    <form action="/password">
+                                    <form action="/enviarPassword" method="POST">
+
                                         @csrf
                                         <p>Ingresa tu correo electrónico y te enviaremos las instrucciones para restablecer tu contraseña.</p>
 
                                         <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="email" id="typeEmail" class="form-control my-3" placeholder="Correo electrónico" />
+                                            <input type="text" id="typeEmail" class="form-control my-3" placeholder="Correo electrónico" name="txtemailpsw" value="{{ old('txtemailpsw') }}">
                                             <label class="form-label" for="typeEmail">Correo Electrónico</label>
+                                            <small class="fst-italic text-danger">{{$errors->first('txtemailpsw')}}</small>
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">

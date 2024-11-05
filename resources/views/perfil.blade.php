@@ -1,5 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
+@extends('layouts.plantilla1')
+
+@section('title', 'Inicio')
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/styles_carousel.css') }}" />
+@endpush
 
 <head>
     <meta charset="UTF-8" />
@@ -17,20 +23,12 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav>
-        <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
-        <ul class="nav__links">
-            <a href="{{ route('inicio') }}">Home</a>
-            <a href="{{ route('faqs') }}">FAQ's</a>
-            <a href="{{ route('comparar') }}">Comparaciones</a>
-            <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('perfil') }}">Perfil</a>
-        </ul>
-    </nav>
 
     <!-- Header -->
     <header>
+        <br>
+        <br>
+        <br>
         <h2>Perfil de Usuario</h2>
         <p>Gestiona tus reservas, guarda hoteles favoritos y actualiza tus preferencias.</p>
     </header>
@@ -40,19 +38,27 @@
         <!-- Sección de datos personales -->
         <section class="personal-info">
             <h3>Datos Personales</h3>
-            <form>
+
+            <form action="/enviarPerfil" method="POST">
+
+                @csrf
+
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                <input type="text" id="name" name="txtnameper" placeholder="Tu nombre completo" value="{{ old('txtnameper') }}">
+                <small class="fst-italic text-danger">{{$errors->first('txtnameper')}}</small>
 
                 <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+                <input type="text" id="email" name="txtemailper" placeholder="Tu correo electrónico" value="{{ old('txtemailper') }}">
+                <small class="fst-italic text-danger">{{$errors->first('txtemailper')}}</small>
 
                 <label for="preferences">Preferencias:</label>
-                <textarea id="preferences" name="preferences"
-                    placeholder="Describe tus preferencias de viaje..."></textarea>
+                <textarea id="preferences" name="txtpreferencesper"
+                    placeholder="Describe tus preferencias de viaje..." value="{{ old('txtpreferencesper') }}"></textarea>
+                <small class="fst-italic text-danger">{{$errors->first('txtpreferencesper')}}</small>
 
                 <button type="submit">Actualizar Información</button>
             </form>
+
         </section>
 
         <!-- Sección de reservas -->
@@ -90,22 +96,6 @@
         </section>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="section__container">
-            <h4>Turista sin Maps</h4>
-            <div class="social__icons">
-                <span><i class="ri-facebook-fill"></i></span>
-                <span><i class="ri-twitter-fill"></i></span>
-                <span><i class="ri-instagram-line"></i></span>
-                <span><i class="ri-linkedin-fill"></i></span>
-            </div>
-            <p>
-                Travel makes one modest. You see what a tiny place you occupy in the world.
-            </p>
-        </div>
-    </footer>
-
 </body>
 
-</html>
+@section('content')
