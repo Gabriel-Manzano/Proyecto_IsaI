@@ -19,13 +19,13 @@
 <body>
     <!-- Navbar -->
     <nav>
-        <div class="nav__logo"><a href="{{ route('login') }}">Turista sin Maps</a></div>
+        <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
         <ul class="nav__links">
-            <a href="{{ route('login') }}">Home</a>
-            <a href="{{ route('busqueda') }}">Descubre!</a>
-            <a class="text-muted" href="{{ route('password') }}">Ofertas</a>
+            <a href="{{ route('inicio') }}">Home</a>
+            <a href="{{ route('faqs') }}">FAQ's</a>
+            <a href="{{ route('comparar') }}">Comparaciones</a>
             <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('register') }}">Register</a>
+            <a href="{{ route('perfil') }}">Perfil</a>
         </ul>
     </nav>
 
@@ -48,7 +48,8 @@
                 <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
 
                 <label for="preferences">Preferencias:</label>
-                <textarea id="preferences" name="preferences" placeholder="Describe tus preferencias de viaje..."></textarea>
+                <textarea id="preferences" name="preferences"
+                    placeholder="Describe tus preferencias de viaje..."></textarea>
 
                 <button type="submit">Actualizar Información</button>
             </form>

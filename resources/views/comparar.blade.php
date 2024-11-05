@@ -12,12 +12,22 @@
     <!-- Ruta al archivo CSS en Laravel -->
     <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/styles_comparativa.css') }}">
-  
+
 
     <title>Comparativa de Hoteles - TURISTA SIN MAPS</title>
 </head>
 
 <body>
+    <nav>
+        <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
+        <ul class="nav__links">
+            <a href="{{ route('inicio') }}">Home</a>
+            <a href="{{ route('faqs') }}">FAQ's</a>
+            <a href="{{ route('comparar') }}">Comparaciones</a>
+            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('perfil') }}">Perfil</a>
+        </ul>
+    </nav>
     <!-- Vista de Comparativa de Hoteles -->
     <div class="comparison-container">
         <h2>Comparativa de Hoteles</h2>

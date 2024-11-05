@@ -12,34 +12,31 @@
     <!-- Ruta al archivo CSS en Laravel -->
     <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/styles_BA.css') }}">
-    
+
 
     <title>TURISTA SIN MAPS</title>
 </head>
 
 <body>
     <nav>
-        <div class="nav__logo"><a href="{{ route('login') }}">Turista sin Maps</a></div>
+        <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
         <ul class="nav__links">
-            <ul class="nav__links">
-                <a href="{{ route('login') }}">Home</a>
-                <a href="{{ route('busqueda') }}">Descubre!</a>
-                <a class="text-muted" href="{{ route('password') }}">Ofertas</a>
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
-            </ul>
-            
+            <a href="{{ route('inicio') }}">Home</a>
+            <a href="{{ route('faqs') }}">FAQ's</a>
+            <a href="{{ route('comparar') }}">Comparaciones</a>
+            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('perfil') }}">Perfil</a>
         </ul>
     </nav>
     <header>
-  
+
         <h2>Búsqueda Avanzada de Hoteles</h2>
 
 
     </header>
-   
+
     <input type="text" class="filter-input" id="search" placeholder="Buscar hoteles...">
-    
+
     <div class="table-container">
         <table>
             <thead>
@@ -136,31 +133,31 @@
             </tbody>
         </table>
     </div>
-    
+
     <script>
         const searchInput = document.getElementById('search');
         const tableBody = document.getElementById('hotel-table-body');
-    
-        searchInput.addEventListener('keyup', function() {
+
+        searchInput.addEventListener('keyup', function () {
             const filter = searchInput.value.toLowerCase();
             const rows = tableBody.getElementsByTagName('tr');
-    
+
             for (let i = 0; i < rows.length; i++) {
                 const cells = rows[i].getElementsByTagName('td');
                 let found = false;
-    
+
                 for (let j = 0; j < cells.length; j++) {
                     if (cells[j].textContent.toLowerCase().includes(filter)) {
                         found = true;
                         break;
                     }
                 }
-    
+
                 rows[i].style.display = found ? '' : 'none';
             }
         });
     </script>
-    
+
     <footer>
         <div class="section__container">
             <h4>Turista din Maps</h4>
@@ -176,7 +173,7 @@
             </p>
         </div>
     </footer>
-   
+
 
 </body>
 

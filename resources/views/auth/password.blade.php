@@ -30,7 +30,7 @@
                                         <h4 class="mt-1 mb-5 pb-1" style="font-style: italic;">Restablecer Contraseña</h4>
                                     </div>
 
-                                    <form action="" method="post">
+                                    <form action="/password">
                                         @csrf
                                         <p>Ingresa tu correo electrónico y te enviaremos las instrucciones para restablecer tu contraseña.</p>
 

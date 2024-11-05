@@ -18,16 +18,13 @@
 
 <body>
     <nav>
-        <div class="nav__logo"><a href="{{ route('login') }}">Turista sin Maps</a></div>
+        <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
         <ul class="nav__links">
-            <ul class="nav__links">
-                <a href="{{ route('login') }}">Home</a>
-                <a href="{{ route('busqueda') }}">Descubre!</a>
-                <a class="text-muted" href="{{ route('password') }}">Ofertas</a>
-                <a href="{{ route('login') }}">Login</a>
-                <a href="{{ route('register') }}">Register</a>
-            </ul>
-            
+            <a href="{{ route('inicio') }}">Home</a>
+            <a href="{{ route('faqs') }}">FAQ's</a>
+            <a href="{{ route('comparar') }}">Comparaciones</a>
+            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('perfil') }}">Perfil</a>
         </ul>
     </nav>
     <header>

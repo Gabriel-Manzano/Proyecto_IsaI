@@ -18,13 +18,13 @@
 
 <body>
     <nav>
-        <div class="nav__logo"><a href="#">Turista sin Maps</a></div>
+        <div class="nav__logo"><a href="/">Turista sin Maps</a></div>
         <ul class="nav__links">
-            <a href="{{ route('login') }}">Home</a>
-            <a href="{{ route('login') }}">Blog</a>
-            <a class="text-muted" href="{{ route('password') }}">Ofertas</a>
+            <a href="{{ route('inicio') }}">Home</a>
+            <a href="{{ route('faqs') }}">FAQ's</a>
+            <a href="{{ route('comparar') }}">Comparaciones</a>
             <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('register') }}">Register</a>
+            <a href="{{ route('perfil') }}">Perfil</a>
         </ul>
     </nav>
 
@@ -45,4 +45,5 @@
 
     @stack('scripts')
 </body>
+
 </html>
