@@ -1,0 +1,42 @@
+ /* Estilos de la Vista de Preguntas Frecuentes */
+ .faq-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-container h2 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-item h3 {
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.faq-item h3:hover {
+    color: #0056b3;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 10px;
+    font-size: 0.95em;
+    color: #555;
+}

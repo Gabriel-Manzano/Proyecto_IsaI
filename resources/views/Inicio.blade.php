@@ -18,11 +18,11 @@
 
 <body>
     <nav>
-        <div class="nav__logo"><a href="#">Turista sin Maps</a></div>
+        <div class="nav__logo"><a href="{{ route('login') }}">Turista sin Maps</a></div>
         <ul class="nav__links">
             <ul class="nav__links">
                 <a href="{{ route('login') }}">Home</a>
-                <a href="{{ route('login') }}">Blog</a>
+                <a href="{{ route('busqueda') }}">Descubre!</a>
                 <a class="text-muted" href="{{ route('password') }}">Ofertas</a>
                 <a href="{{ route('login') }}">Login</a>
                 <a href="{{ route('register') }}">Register</a>
@@ -44,7 +44,8 @@
                         <i class="ri-star-fill"></i>
                         <i class="ri-star-fill"></i>
                     </div>
-                    <a href="{{ url('/hotel/santorini') }}" class="btn">Ver más</a>
+                    <a href="{{ route('hotel.show', ['id' => 1]) }}">Hotel Santorini</a>
+
                 </div>
             </div>
             <div class="carousel-item">
@@ -59,7 +60,7 @@
                         <i class="ri-star-fill"></i>
                         <i class="ri-star-half-fill"></i>
                     </div>
-                    <a href="{{ url('/hotel/vernazza') }}" class="btn">Ver más</a>
+                    <a href="{{ route('hotel.show', ['id' => 2]) }}">Hotel Santorini</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -74,7 +75,7 @@
                         <i class="ri-star-fill"></i>
                         <i class="ri-star-half-fill"></i>
                     </div>
-                    <a href="{{ url('/hotel/san-francisco') }}" class="btn">Ver más</a>
+                    <a href="{{ route('hotel.show', ['id' => 3]) }}">Hotel Santorini</a>
                 </div>
             </div>
             <!-- Agrega más elementos aquí -->

@@ -1,0 +1,61 @@
+  /* Estilos de la Comparativa de Hoteles */
+  .comparison-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-container h2 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.hotel-selection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.hotel-selection label {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.hotel-selection select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Estilos de la tabla comparativa */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.comparison-table th {
+    background-color: #0056b3;
+    color: white;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.comparison-table tr:hover {
+    background-color: #e0e0e0;
+}
