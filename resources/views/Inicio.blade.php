@@ -10,7 +10,14 @@
 @section('content')
 
 <body>
-
+    @session('exito')
+        <script>
+            Swal.fire({
+                title: "¡Login exitoso!",
+                icon: "success"
+            });
+        </script>
+    @endsession
     <header>
         <div class="carousel-3d">
             <div class="carousel-item">

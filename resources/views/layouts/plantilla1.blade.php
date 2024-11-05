@@ -8,6 +8,7 @@
 
     <!-- CDN de Remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Archivos CSS específicos -->
     @stack('styles')

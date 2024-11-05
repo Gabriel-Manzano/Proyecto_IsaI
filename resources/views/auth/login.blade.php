@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Login</title>
     <meta charset="utf-8" />
@@ -10,8 +11,19 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="{{ asset('assets/estilos.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
+    @session('exito')
+        <script>
+            Swal.fire({
+                title: "¡Inicio de sesión exitoso!",
+                text: '{{$value}}',
+                icon: "success"
+            });
+        </script>
+    @endsession
     <section class="h-100 gradient-form" style="background-color: #eee;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -28,29 +40,37 @@
                                     <form action="/enviarLogin" method="POST">
 
                                         @csrf
-                                        
+
                                         <p>Bienvenido!!!, Porfavor Ingrese sus Datos :D</p>
 
                                         <div class="form-outline mb-4">
-                                            <input type="text" name="txtemaillog" id="form2Example11" class="form-control" placeholder="Correo electrónico" value="{{ old('txtemaillog') }}">
+                                            <input type="text" name="txtemaillog" id="form2Example11"
+                                                class="form-control" placeholder="Correo electrónico"
+                                                value="{{ old('txtemaillog') }}">
                                             <label class="form-label" for="form2Example11">Correo</label>
-                                            <small class="fst-italic text-danger">{{$errors->first('txtemaillog')}}</small>
+                                            <small
+                                                class="fst-italic text-danger">{{$errors->first('txtemaillog')}}</small>
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <input type="password" name="txtpasswordlog" id="form2Example22" class="form-control" value="{{ old('txtpasswordlog') }}">
+                                            <input type="password" name="txtpasswordlog" id="form2Example22"
+                                                class="form-control" value="{{ old('txtpasswordlog') }}">
                                             <label class="form-label" for="form2Example22">Contraseña</label>
-                                            <small class="fst-italic text-danger">{{$errors->first('txtpasswordlog')}}</small>
+                                            <small
+                                                class="fst-italic text-danger">{{$errors->first('txtpasswordlog')}}</small>
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
-                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Iniciar</button><br>
-                                            <a class="text-muted" href="{{ route('password') }}">¿Olvidaste tu contraseña?</a>
+                                            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                                type="submit">Iniciar</button><br>
+                                            <a class="text-muted" href="{{ route('password') }}">¿Olvidaste tu
+                                                contraseña?</a>
                                         </div>
 
                                         <div class="d-flex align-items-center justify-content-center pb-4">
                                             <p class="mb-0 me-2">¿Aún no tienes cuenta?</p>
-                                            <a href="{{ route('register') }}" class="btn btn-outline-danger">Registrarse</a>
+                                            <a href="{{ route('register') }}"
+                                                class="btn btn-outline-danger">Registrarse</a>
                                         </div>
                                     </form>
 
@@ -59,7 +79,8 @@
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
                                     <h4 class="mb-4">We are more than just a company</h4>
-                                    <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                                    <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit...
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -71,10 +92,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQ+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-    </script>
+        </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
+
 </html>

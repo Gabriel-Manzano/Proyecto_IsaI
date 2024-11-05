@@ -9,10 +9,18 @@
     <link rel="stylesheet" href="{{ asset('css/styles_hotel.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/remixicon/fonts/remixicon.css">
     <title>{{ $hotel['name'] }} - TURISTA SIN MAPS</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-
+    @session('exito')
+        <script>
+            Swal.fire({
+                title: "¡Reservación guardada con éxito!",
+                icon: "success"
+            });
+        </script>
+    @endsession
     <header>
         <br>
         <br>
@@ -83,7 +91,7 @@
 
     <section class="hotel-reservation">
         <h2>Reserva tu Estancia</h2>
-        <form action="/enviarHotel" method="POST">
+        <form action="/enviarHotel2" method="POST">
 
             @csrf
 

@@ -18,6 +18,7 @@
     <!-- Ruta al archivo CSS en Laravel -->
     <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/styles_perfil.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Perfil de Usuario - TURISTA SIN MAPS</title>
 </head>
@@ -34,6 +35,15 @@
     </header>
 
     <!-- Contenido principal del perfil de usuario -->
+    @session('exito')
+        <script>
+            Swal.fire({
+                title: "¡Datos actualizados con éxito!",
+                text: '{{$value}}',
+                icon: "success"
+            });
+        </script>
+    @endsession
     <div class="profile-container">
         <!-- Sección de datos personales -->
         <section class="personal-info">
@@ -44,16 +54,18 @@
                 @csrf
 
                 <label for="name">Nombre:</label>
-                <input type="text" id="name" name="txtnameper" placeholder="Tu nombre completo" value="{{ old('txtnameper') }}">
+                <input type="text" id="name" name="txtnameper" placeholder="Tu nombre completo"
+                    value="{{ old('txtnameper') }}">
                 <small class="fst-italic text-danger">{{$errors->first('txtnameper')}}</small>
 
                 <label for="email">Correo Electrónico:</label>
-                <input type="text" id="email" name="txtemailper" placeholder="Tu correo electrónico" value="{{ old('txtemailper') }}">
+                <input type="text" id="email" name="txtemailper" placeholder="Tu correo electrónico"
+                    value="{{ old('txtemailper') }}">
                 <small class="fst-italic text-danger">{{$errors->first('txtemailper')}}</small>
 
                 <label for="preferences">Preferencias:</label>
-                <textarea id="preferences" name="txtpreferencesper"
-                    placeholder="Describe tus preferencias de viaje..." value="{{ old('txtpreferencesper') }}"></textarea>
+                <textarea id="preferences" name="txtpreferencesper" placeholder="Describe tus preferencias de viaje..."
+                    value="{{ old('txtpreferencesper') }}"></textarea>
                 <small class="fst-italic text-danger">{{$errors->first('txtpreferencesper')}}</small>
 
                 <button type="submit">Actualizar Información</button>

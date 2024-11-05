@@ -95,10 +95,22 @@ class ControladorVistas extends Controller
         return back()->with('resent', true);
     }
 
-    public function procesarHotel(validadorHotel $peticionValidada)
+    public function procesarHotel1(validadorHotel $peticionValidada)
     {
         session()->Flash('exito');
-        return to_route('inicio');
+        return to_route('hotel.show', ['id' => 1]);
+    }
+
+    public function procesarHotel2(validadorHotel $peticionValidada)
+    {
+        session()->Flash('exito');
+        return to_route('hotel.show', ['id' => 2]);
+    }
+
+    public function procesarHotel3(validadorHotel $peticionValidada)
+    {
+        session()->Flash('exito');
+        return to_route('hotel.show', ['id' => 3]);
     }
 
     public function procesarPerfil(validadorPerfil $peticionValidada)
