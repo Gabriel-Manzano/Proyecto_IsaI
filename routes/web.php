@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ControladorVistas;
+use App\Http\Controllers\ModalController;
+
+Route::post('/reservar', [ModalController::class, 'reservar'])->name('reservar');
 
 Route::get('/', [ControladorVistas::class, 'inicio'])->name('inicio');
 Route::get('/preguntas-frecuentes', [ControladorVistas::class, 'faqs'])->name('faqs');

@@ -1,0 +1,96 @@
+/* definicion de colores */
+:root {
+    --primary-color: #669ccb;
+    --primary-color-dark: #5681a7;
+    --secondary-color: #e8f1fa;
+    --text-dark: #282d31;
+    --text-light: #767268;
+    --extra-light: #f3f4f6;
+  
+    --max-width: 1200px;
+  }
+  /* footer ------------------------------------------------------------------------------------------*/
+  
+  footer {
+    clear: both;
+    background-color: var(--text-dark);
+    color: var(--secondary-color);
+    margin-top: 6rem;
+  }
+  
+  footer .section__container {
+    display: grid;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  footer h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .social__icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .social__icons i {
+    padding: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  footer p {
+    font-style: italic;
+  }
+  
+
+  /* navar----------------------------------------------------------------------------------------- */
+  nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: var(--max-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+  
+  .nav__logo a {
+    text-decoration: none;
+    color: var(--extra-light);
+    font-size: 1.5rem;
+  }
+  
+  .nav__links {
+    display: none;
+    list-style: none;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  nav {
+    z-index: 10; /* Un z-index alto para que esté encima del carrusel */
+}
+
+nav a {
+    color: inherit; /* Hereda el color del elemento padre */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.nav__links .link a {
+    color: #000; /* Cambia esto al color que desees */
+    text-decoration: none; /* Sin subrayado */
+}
+  
+  @media (min-width: 640px) {
+    .nav__links {
+      display: flex;
+    }
+  }

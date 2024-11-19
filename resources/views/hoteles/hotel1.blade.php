@@ -2,120 +2,92 @@
 
 @section('title', 'Inicio')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styles_hotel.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/remixicon/fonts/remixicon.css">
-    <title>{{ $hotel['name'] }} - TURISTA SIN MAPS</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
-
-<body>
-    @session('exito')
-        <script>
-            Swal.fire({
-                title: "¡Reservación guardada con éxito!",
-                icon: "success"
-            });
-        </script>
-    @endsession
-    <header>
-        <br>
-        <br>
-        
-        <h1>{{ $hotel['name'] }}</h1>
-        <div class="stars">
-            @for ($i = 1; $i <= 5; $i++)
-                <i
-                    class="ri-star{{ $i <= floor($hotel['stars']) ? '-fill' : ($i - $hotel['stars'] == 0.5 ? '-half-fill' : '-line') }}"></i>
-            @endfor
-        </div>
-        <p>{{ $hotel['description'] }}</p>
-
-        <!-- Div que contiene la galería de imágenes -->
-        <div class="hotel-gallery">
-            <h2>Galería de Imágenes</h2>
-            <div class="carousel-3d">
-                @foreach ($hotel['images'] as $image)
-                    <div class="carousel-item">
-                        <img src="{{ asset('images/hoteles/' . $image) }}" alt="Imagen de {{ $hotel['name'] }}">
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </header>
-
-    <section class="hotel-amenities">
-        <h2>Servicios y Comodidades</h2>
-        <div class="amenities-list">
-            <ul>
-                @foreach ($hotel['amenities'] as $amenity)
-                    <li>{{ $amenity }}</li>
-                @endforeach
-            </ul>
-        </div>
-    </section>
-
-    <section class="hotel-activities">
-        <h2>Actividades</h2>
-        <div class="activities-list">
-            <ul>
-                @foreach ($hotel['activities'] as $activity)
-                    <li>{{ $activity }}</li>
-                @endforeach
-            </ul>
-        </div>
-    </section>
-
-    <section class="hotel-comments">
-        <h2>Comentarios de los Usuarios</h2>
-        <div class="comments">
-            @if (isset($hotel['comments']) && count($hotel['comments']) > 0)
-                @foreach ($hotel['comments'] as $comment)
-                    <div class="comment">
-                        <strong>{{ $comment['user'] }}</strong>
-                        <div class="stars">
-                            @for ($i = 1; $i <= 5; $i++)
-                                <i class="ri-star{{ $i <= $comment['rating'] ? '-fill' : '-line' }}"></i>
-                            @endfor
-                        </div>
-                        <p>{{ $comment['comment'] }}</p>
-                    </div>
-                @endforeach
-            @else
-                <p>No hay comentarios disponibles.</p>
-            @endif
-        </div>
-    </section>
-
-    <section class="hotel-reservation">
-        <h2>Reserva tu Estancia</h2>
-
-        <form action="/enviarHotel1" method="POST">
-
-            @csrf
-
-            <label for="check-in">Fecha de Check-in:</label>
-            <input type="date" id="check-in" name="datcheckin" value="{{ old('datcheckin') }}">
-            <small class="fst-italic text-danger">{{$errors->first('datcheckin')}}</small>
-
-            <label for="check-out">Fecha de Check-out:</label>
-            <input type="date" id="check-out" name="datcheckout" value="{{ old('datcheckout') }}">
-            <small class="fst-italic text-danger">{{$errors->first('datcheckout')}}</small>
-
-            <label for="guests">Número de Huéspedes:</label>
-            <input type="text" id="guests" name="txthuespedes" value="{{ old('txthuespedes') }}">
-            <small class="fst-italic text-danger">{{$errors->first('txthuespedes')}}</small>
-
-            <button type="submit" class="reserve-button">Confirmar Reserva</button>
-
-        </form>
-
-    </section>
-
-    <script src="{{ asset('js/carousel.js') }}"></script>
-</body>
 
 @section('content')
+<head>
+    
+    <link rel="stylesheet" href="{{ asset('css/componentes.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/stylesHotel.css') }}">
+    {{-- <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhvQHUFNotF0PR_tL8oBIDX7syw3CbmRY&callback=initMap">
+</script> --}}
+
+</head>
+<body>
+ <div class="contenedor">
+    <main class="hotel-container">
+        <section class="gallery">
+          <div class="main-image">
+            <img src="{{ asset('images/hoteles/hotel-1.jpg') }}" alt="Hotel 2" />   
+          </div>
+          <div class="thumbnail-images">
+            <img src="{{ asset('images/hoteles/hotel-1.jpg') }}" alt="Imagen del hotel">
+            <img src="{{ asset('images/hoteles/hotel-1.jpg') }}" alt="Imagen del hotel">
+            <img src="{{ asset('images/hoteles/hotel-1.jpg') }}" alt="Habitación del hotel">
+            <img src="{{ asset('images/hoteles/hotel-1.jpg') }}" alt="Terraza del hotel">
+          </div>
+        </section>
+        
+       
+    
+        <section class="info">
+          <h1>Casa Oxa Hotel</h1>
+          <p class="rating">⭐⭐⭐⭐ <span>10 Excepcional</span></p>
+          <p>A los huéspedes les gustó: <strong>Personal amable</strong></p>
+          <a href="#">Ver las 112 opiniones</a>
+          
+          <h2>Información de la propiedad</h2>
+          <p>Hotel con servicios de spa cerca de Acueducto de Santiago de Querétaro</p>
+          <ul class="amenities">
+            <li>🏊 Alberca</li>
+            <li>🐾 Acepta mascotas</li>
+            <li>🕒 Recepción 24h</li>
+            <li>💆 Spa</li>
+            <li>🧺 Lavandería</li>
+            <li>❄️ Aire acondicionado</li>
+          </ul>
+          <aside class="reservation">
+            <button>Seleccionar habitación</button>
+          </aside>
+        </section>
+        
+        <section class="location">
+          <h2>Explora la zona</h2>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119499.09121106884!2d-100.50556946730849!3d20.614724541835916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b8fdc5b9255%3A0x97b094aa561b832f!2sSantiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1ses-419!2smx!4v1731991942525!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          {{-- <div id="map" style="height: 400px; width: 100%;"></div> --}}
+          <address>
+            <p>45 José María Arteaga Centro, Querétaro, QUE, 76000</p>
+            <a href="#">Ver en el mapa</a>
+          </address>
+          <ul class="nearby">
+            <li>Museo de Arte de Querétaro - 3 min a pie</li>
+            <li>Templo de Santa Rosa de Viterbo - 4 min a pie</li>
+            <li>Catedral de Querétaro - 6 min a pie</li>
+            <li>Aeropuerto Internacional de Querétaro - 38 min en auto</li>
+          </ul>
+        </section>
+      </main>
+    
+      <script>
+     /*  function initMap() {
+      // Ubicación específica (Ejemplo: Ciudad de Querétaro, México)
+      const queretaro = { lat: 20.5937, lng: -100.3928 };
+    
+      // Crea el mapa y lo centra en la ubicación
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: queretaro,
+      });
+    
+      // Agrega un marcador en la ubicación
+      new google.maps.Marker({
+        position: queretaro,
+        map: map,
+        title: "Querétaro",
+      });
+    } */
+    
+      </script>
+ </div>
+</body>
+

@@ -1,0 +1,141 @@
+body {
+  
+  background-image: url("/images/fondos/FondoUsuario.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  min-height: 100vh;
+    font-family: Arial, sans-serif;
+   
+    margin-top: 9rem; /* Añade espacio en la parte superior */
+  }
+  
+  header {
+    padding: 10px;
+    background: #f7f7f7;
+  }
+  
+  .back-link {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+  }
+  
+  .hotel-container {
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .gallery {
+    margin-top: 3rem;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .main-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .thumbnail-images {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .thumbnail-images img {
+    width: calc(25% - 10px);
+    border-radius: 5px;
+  }
+  
+  .reservation {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .reservation button {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .info {
+    flex: 2;
+    margin-top: 4rem;
+  }
+  
+  .info h1 {
+    font-size: 24px;
+  }
+  
+  .info .rating {
+    font-size: 18px;
+    color: #ff9800;
+  }
+  
+  .info ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .info ul li {
+    margin-bottom: 5px;
+  }
+  
+  .location {
+    flex: 1;
+  }
+  
+  .map img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .location ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .location ul li {
+    margin-bottom: 5px;
+  }
+  .hotel-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px; /* Espacio adicional para evitar solapamiento */
+  }
+    
+
+  /* Estilo del contenedor del mapa */
+iframe {
+  height: 400px; /* Altura del mapa */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  border: 2px solid #ccc; /* Borde del mapa */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+  margin: 20px auto; /* Centrar el contenedor si es necesario */
+  max-width: 800px; /* Ancho máximo para evitar que sea demasiado grande */
+}
+
+
+main > *:last-child {
+  margin-bottom: 0; /* Elimina el margen inferior del último elemento */
+}
+
+.informacion{
+background-color: #f7f7f7;
+margin-top: 9rem;
+}

@@ -1,0 +1,35 @@
+
+
+.profile-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .profile-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  body {
+    background-image: url("/images/fondos/FondoUsuario.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Hace que la imagen quede fija mientras se hace scroll */
+  height: 100vh; 
+    margin-top: 6rem; /* Añade espacio en la parte superior */
+  
+  }
+
+  
