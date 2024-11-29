@@ -29,3 +29,4 @@ Route::post('/enviarHotel1',[controladorVistas::class,'procesarHotel1'])->name('
 Route::post('/enviarHotel2',[controladorVistas::class,'procesarHotel2'])->name('rutaenviarhotel2');
 Route::post('/enviarHotel3',[controladorVistas::class,'procesarHotel3'])->name('rutaenviarhotel3');
 Route::get('/hotels', [HotelController::class, 'index'])->name('busqueda');
+Route::get('/hotels/search', [HotelController::class, 'search'])->name('hotels.search');

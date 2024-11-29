@@ -1,163 +1,148 @@
 @extends('layouts.plantilla1')
 
-@section('title', 'Inicio')
+@section('title', 'Búsqueda Avanzada')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/styles_carousel.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/styles_BA.css') }}">
+    <style>
+        /* Contenedor que mantiene los filtros y la tabla en columnas */
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Contenedor de los filtros */
+        .filter-container {
+            width: 300px;
+            flex-shrink: 0;
+        }
+
+        .filter-container input,
+        .filter-container select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .filter-container button {
+            padding: 8px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .filter-container .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+
+        .table-container {
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+
+        /* Hacer que el contenedor sea responsivo */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .filter-container {
+                width: 100%;
+            }
+        }
+    </style>
 @endpush
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- CDN de Remixicon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet" />
-
-    <!-- Ruta al archivo CSS en Laravel -->
-    <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/styles_BA.css') }}">
-
-
-    <title>TURISTA SIN MAPS</title>
-</head>
-
-<body>
-
+@section('content')
     <header>
-        <br>
-        <br>
-        <br>
         <h2>Búsqueda Avanzada de Hoteles</h2>
-
-
     </header>
 
-    <input type="text" class="filter-input" id="search" placeholder="Buscar hoteles...">
+    <!-- Contenedor principal con filtros y tabla -->
+    <div class="container">
+        <!-- Contenedor de filtros -->
+        <div class="filter-container">
+            <form method="GET" action="{{ route('busqueda') }}">
+                <input type="text" name="location" placeholder="Ubicación" value="{{ request('location') }}">
+                
+                <!-- Filtro de fechas -->
+                <input type="date" name="check_in" value="{{ request('check_in') }}" placeholder="Fecha de entrada">
+                <input type="date" name="check_out" value="{{ request('check_out') }}" placeholder="Fecha de salida">
 
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre del Hotel</th>
-                    <th>Ubicación</th>
-                    <th>Precio por Noche</th>
-                    <th>Estrellas</th>
-                    <th>Tipo de Alojamiento</th>
-                    <th>Comodidades</th>
-                </tr>
-            </thead>
-            <tbody id="hotel-table-body">
-                <tr>
-                    <td>Hotel Paradise</td>
-                    <td>Cancún</td>
-                    <td>$150</td>
-                    <td>5</td>
-                    <td>Resort</td>
-                    <td>Piscina, Spa, WiFi</td>
-                </tr>
-                <tr>
-                    <td>Montaña Retreat</td>
-                    <td>Colorado</td>
-                    <td>$120</td>
-                    <td>4</td>
-                    <td>Cabaña</td>
-                    <td>Senderismo, Mascotas Permitidas</td>
-                </tr>
-                <tr>
-                    <td>Urban Stay</td>
-                    <td>Ciudad de México</td>
-                    <td>$80</td>
-                    <td>3</td>
-                    <td>Hotel Urbano</td>
-                    <td>Desayuno, Gimnasio</td>
-                </tr>
-                <tr>
-                    <td>Playa Beach Hotel</td>
-                    <td>Miami</td>
-                    <td>$200</td>
-                    <td>5</td>
-                    <td>Hotel Playa</td>
-                    <td>Restaurante, Bar, WiFi</td>
-                </tr>
-                <tr>
-                    <td>Eco Lodge</td>
-                    <td>Costa Rica</td>
-                    <td>$90</td>
-                    <td>3</td>
-                    <td>Lodge</td>
-                    <td>Ecoturismo, Wifi</td>
-                </tr>
-                <tr>
-                    <td>City Center Hotel</td>
-                    <td>Nueva York</td>
-                    <td>$250</td>
-                    <td>4</td>
-                    <td>Hotel Urbano</td>
-                    <td>Restaurante, Wifi, Centro de Negocios</td>
-                </tr>
-                <tr>
-                    <td>Comfort Inn</td>
-                    <td>Toronto</td>
-                    <td>$70</td>
-                    <td>3</td>
-                    <td>Hotel Familiar</td>
-                    <td>Desayuno, Wifi</td>
-                </tr>
-                <tr>
-                    <td>Luxury Suites</td>
-                    <td>París</td>
-                    <td>$300</td>
-                    <td>5</td>
-                    <td>Hotel de Lujo</td>
-                    <td>Spa, Restaurante, Transporte al Aeropuerto</td>
-                </tr>
-                <tr>
-                    <td>Mountain View Inn</td>
-                    <td>Aspen</td>
-                    <td>$180</td>
-                    <td>4</td>
-                    <td>Hotel de Montaña</td>
-                    <td>Jacuzzi, Actividades al aire libre</td>
-                </tr>
-                <tr>
-                    <td>Tropical Oasis</td>
-                    <td>Bali</td>
-                    <td>$160</td>
-                    <td>4</td>
-                    <td>Resort</td>
-                    <td>Piscina, Spa, Clases de Yoga</td>
-                </tr>
-            </tbody>
-        </table>
+                <!-- Filtro de número de habitaciones y huéspedes -->
+                <input type="number" name="rooms" value="{{ request('rooms') }}" placeholder="Número de habitaciones" min="1">
+                <input type="number" name="guests" value="{{ request('guests') }}" placeholder="Número de huéspedes" min="1">
+
+                <!-- Filtros de precio y estrellas -->
+                <input type="number" name="min_price" placeholder="Precio mínimo" value="{{ request('min_price') }}">
+                <input type="number" name="max_price" placeholder="Precio máximo" value="{{ request('max_price') }}">
+                <input type="number" name="stars" placeholder="Estrellas" value="{{ request('stars') }}">
+
+                <select name="type">
+                    <option value="">Tipo</option>
+                    <option value="Hotel" {{ request('type') == 'Hotel' ? 'selected' : '' }}>Hotel</option>
+                    <option value="Resort" {{ request('type') == 'Resort' ? 'selected' : '' }}>Resort</option>
+                    <option value="Hostel" {{ request('type') == 'Hostel' ? 'selected' : '' }}>Hostel</option>
+                </select>
+
+                <select name="amenities[]" multiple>
+                    <option value="Piscina" {{ in_array('Piscina', (array)request('amenities', [])) ? 'selected' : '' }}>Piscina</option>
+                    <option value="WiFi" {{ in_array('WiFi', (array)request('amenities', [])) ? 'selected' : '' }}>WiFi</option>
+                    <option value="Spa" {{ in_array('Spa', (array)request('amenities', [])) ? 'selected' : '' }}>Spa</option>
+                    <option value="Gimnasio" {{ in_array('Gimnasio', (array)request('amenities', [])) ? 'selected' : '' }}>Gimnasio</option>
+                </select>
+
+                <div class="button-group">
+                    <button type="submit">Aplicar Filtros</button>
+                    <a href="{{ route('busqueda') }}">
+                        <button type="button">Borrar filtros</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Contenedor de la tabla de resultados -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Ubicación</th>
+                        <th>Precio</th>
+                        <th>Estrellas</th>
+                        <th>Tipo</th>
+                        <th>Amenidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if($hotels->isEmpty())
+                        <tr>
+                            <td colspan="6">No se encontraron hoteles que coincidan con la búsqueda.</td>
+                        </tr>
+                    @else
+                        @foreach($hotels as $hotel)
+                            <tr>
+                                <td>{{ $hotel->name }}</td>
+                                <td>{{ $hotel->location }}</td>
+                                <td>${{ number_format($hotel->price, 2) }}</td>
+                                <td>{{ $hotel->stars }}</td>
+                                <td>{{ $hotel->type }}</td>
+                                <td>{{ implode(', ', $hotel->amenities) }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
+        </div>
     </div>
-
-    <script>
-        const searchInput = document.getElementById('search');
-        const tableBody = document.getElementById('hotel-table-body');
-
-        searchInput.addEventListener('keyup', function () {
-            const filter = searchInput.value.toLowerCase();
-            const rows = tableBody.getElementsByTagName('tr');
-
-            for (let i = 0; i < rows.length; i++) {
-                const cells = rows[i].getElementsByTagName('td');
-                let found = false;
-
-                for (let j = 0; j < cells.length; j++) {
-                    if (cells[j].textContent.toLowerCase().includes(filter)) {
-                        found = true;
-                        break;
-                    }
-                }
-
-                rows[i].style.display = found ? '' : 'none';
-            }
-        });
-    </script>
-
-
-</body>
-
-@section('content')
+@endsection
