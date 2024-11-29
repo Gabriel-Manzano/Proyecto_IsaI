@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Hotel;
 
 class HotelController extends Controller
 {
@@ -65,58 +66,50 @@ class HotelController extends Controller
 
 
 
-    public function index(Request $request)
-    {
-        // Simulación de datos de hoteles
-        $hotels = [
-            ['name' => 'Hotel Playa Bonita', 'location' => 'Cancún', 'price' => 150.00, 'stars' => 5, 'type' => 'Hotel Playa', 'amenities' => ['Piscina', 'WiFi', 'Spa']],
-            ['name' => 'Montaña Resort', 'location' => 'Valle Nevado', 'price' => 200.00, 'stars' => 4, 'type' => 'Resort', 'amenities' => ['Piscina', 'Gimnasio']],
-            ['name' => 'Eco Lodge', 'location' => 'Amazonas', 'price' => 120.00, 'stars' => 3, 'type' => 'Cabaña', 'amenities' => ['WiFi']],
-            ['name' => 'City Inn', 'location' => 'Nueva York', 'price' => 180.00, 'stars' => 4, 'type' => 'Hotel Urbano', 'amenities' => ['WiFi', 'Gimnasio']],
-            ['name' => 'Hotel Pacífico', 'location' => 'San Francisco', 'price' => 250.00, 'stars' => 5, 'type' => 'Hotel Playa', 'amenities' => ['Spa', 'Piscina']],
-            ['name' => 'Desert Oasis', 'location' => 'Dubai', 'price' => 300.00, 'stars' => 5, 'type' => 'Resort', 'amenities' => ['Piscina', 'Spa', 'WiFi']],
-            ['name' => 'Mountain Lodge', 'location' => 'Suiza', 'price' => 220.00, 'stars' => 4, 'type' => 'Cabaña', 'amenities' => ['WiFi', 'Gimnasio']],
-            ['name' => 'Beachside Hostel', 'location' => 'Miami', 'price' => 100.00, 'stars' => 3, 'type' => 'Hotel Playa', 'amenities' => ['WiFi']],
-            ['name' => 'Downtown Hotel', 'location' => 'Londres', 'price' => 160.00, 'stars' => 4, 'type' => 'Hotel Urbano', 'amenities' => ['Piscina', 'Spa']],
-            ['name' => 'Forest Retreat', 'location' => 'Alpes', 'price' => 140.00, 'stars' => 3, 'type' => 'Cabaña', 'amenities' => ['WiFi', 'Spa']],
-        ];
+ public function index(Request $request)
+{
+    // Captura los parámetros de búsqueda del formulario
+    $location = $request->input('location');
+    $minPrice = $request->input('min_price');
+    $maxPrice = $request->input('max_price');
+    $stars = $request->input('stars');
+    $type = $request->input('type');
+    $amenities = $request->input('amenities');
 
-        // Captura los parámetros de búsqueda del formulario
-        $location = $request->input('location');
-        $minPrice = $request->input('min_price');
-        $maxPrice = $request->input('max_price');
-        $stars = $request->input('stars');
-        $type = $request->input('type');
-        $amenities = $request->input('amenities');
+    // Inicia la consulta base
+    $query = Hotel::query();
 
-        // Filtrado de los datos según los parámetros ingresados
-        $filteredHotels = collect($hotels)->filter(function ($hotel) use ($location, $minPrice, $maxPrice, $stars, $type, $amenities) {
-            if ($location && stripos($hotel['location'], $location) === false) {
-                return false;
-            }
-            if ($minPrice && $hotel['price'] < $minPrice) {
-                return false;
-            }
-            if ($maxPrice && $hotel['price'] > $maxPrice) {
-                return false;
-            }
-            if ($stars && $hotel['stars'] != $stars) {
-                return false;
-            }
-            if ($type && $hotel['type'] != $type) {
-                return false;
-            }
-            if ($amenities) {
-                foreach ($amenities as $amenity) {
-                    if (!in_array($amenity, $hotel['amenities'])) {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        });
-
-        // Retornar la vista con los datos filtrados
-        return view('busquedaAvanzada', ['hotels' => $filteredHotels]);
+    // Aplica filtros según los parámetros
+    if ($location) {
+        $query->where('location', 'LIKE', '%' . $location . '%');
     }
+
+    if ($minPrice) {
+        $query->where('price', '>=', $minPrice);
+    }
+
+    if ($maxPrice) {
+        $query->where('price', '<=', $maxPrice);
+    }
+
+    if ($stars) {
+        $query->where('stars', $stars);
+    }
+
+    if ($type) {
+        $query->where('type', 'LIKE', '%' . $type . '%');
+    }
+
+    if ($amenities) {
+        foreach ($amenities as $amenity) {
+            $query->whereJsonContains('amenities', $amenity); // Filtrado por campo JSON
+        }
+    }
+
+    // Ejecuta la consulta y obtiene los resultados
+    $hotels = $query->get();
+
+    // Retorna la vista con los datos filtrados
+    return view('busquedaAvanzada', ['hotels' => $hotels]);
+}
 }
