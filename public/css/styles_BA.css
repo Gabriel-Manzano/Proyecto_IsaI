@@ -144,3 +144,58 @@ ul li h3 {
 ul li p {
     margin: 4px 0;
 }
+
+        /* Contenedor que mantiene los filtros y la tabla en columnas */
+        .container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Contenedor de los filtros */
+        .filter-container {
+            width: 300px;
+            flex-shrink: 0;
+        }
+
+        .filter-container input,
+        .filter-container select {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .filter-container button {
+            padding: 8px 20px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .filter-container .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+
+        .table-container {
+            flex-grow: 1;
+            margin-top: 20px;
+        }
+
+        /* Hacer que el contenedor sea responsivo */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .filter-container {
+                width: 100%;
+            }
+        }
