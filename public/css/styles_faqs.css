@@ -1,4 +1,16 @@
- /* Estilos de la Vista de Preguntas Frecuentes */
+body {
+    background-image: url("/images/fondos/FondoUsuario.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Hace que la imagen quede fija mientras se hace scroll */
+  height: 100vh; 
+    margin-top: 6rem; /* Añade espacio en la parte superior */
+  
+  }
+
+
+/* Estilos de la Vista de Preguntas Frecuentes */
  .faq-container {
     max-width: 800px;
     margin: 20px auto;

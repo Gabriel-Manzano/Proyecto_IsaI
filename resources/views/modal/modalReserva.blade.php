@@ -1,6 +1,6 @@
 <!-- Modal de Reserva -->
 <div class="modal fade" id="reservarModal" tabindex="-1" aria-labelledby="reservarModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="reservarModalLabel">Formulario de Reserva de Hotel</h5>

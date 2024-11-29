@@ -3,7 +3,7 @@
 @section('title', 'Preguntas Frecuentes')
 
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/styles_Inicio.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/componentes.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/styles_faqs.css') }}">
 @endpush
 

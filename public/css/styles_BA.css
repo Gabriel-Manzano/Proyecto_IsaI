@@ -1,25 +1,39 @@
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
+    background-image: url("/images/fondos/compararFondo.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    margin-top: 9rem;
+}
+
+.container {
+    background-color: aliceblue;
+    border-radius: 10px;
     padding: 20px;
 }
+
 h2 {
     text-align: center;
     color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
+
 .table-container {
-    margin: 0 auto;
-    max-width: 1200px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    overflow-y: auto;
+    max-height: 400px;
 }
+table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 4rem;
 }
 th, td {
     padding: 15px;
@@ -31,8 +45,10 @@ th {
     color: white;
 }
 tr:hover {
-    background-color: #f1f1f1;
+    background-color: #e6f7e6;
+    cursor: pointer;
 }
+
 .filter-input {
     margin-bottom: 20px;
     padding: 10px;
