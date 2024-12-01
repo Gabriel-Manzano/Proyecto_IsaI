@@ -27,12 +27,14 @@ class VueloControlador extends Controller
         }
         if ($request->filled('departure_time')) {
             $departureTime = \Carbon\Carbon::parse($request->departure_time);
-            $query->where('departure_time', '>=', $departureTime);
+            $query->where('departure_time', '=', $departureTime);
         }
+
         if ($request->filled('arrival_time')) {
             $arrivalTime = \Carbon\Carbon::parse($request->arrival_time);
-            $query->where('arrival_time', '<=', $arrivalTime);
+            $query->where('arrival_time', '=', $arrivalTime);
         }
+
         if ($request->filled('stops')) {
             $query->where('escalas', $request->stops);
         }
