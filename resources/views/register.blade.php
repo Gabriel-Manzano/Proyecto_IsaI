@@ -29,42 +29,69 @@
                                         <h4 class="mt-1 mb-5 pb-1" style="font-style: italic;">Turista sin maps</h4>
                                     </div>
 
-                                    <form action="/register" method="POST"> 
-
+                                    <form action="/register" method="POST" class="needs-validation" novalidate>
                                         @csrf
-
-                                        <p>Bienvenido!!!, Por favor, ingrese sus datos :D</p>
-
-                                        <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                                            <div class="form-outline flex-fill mb-0">
-                                                <input type="text" name="txtnamereg" class="form-control"
-                                                    placeholder="Nombre" value="{{ old('txtnamereg') }}">
-                                                <small
-                                                    class="fst-italic text-danger">{{$errors->first('txtnamereg')}}</small>
-                                                <input type="text" name="txtapellidoreg" class="form-control"
-                                                    placeholder="Apellido" value="{{ old('txtapellidoreg') }}">
-                                                <small
-                                                    class="fst-italic text-danger">{{$errors->first('txtapellidoreg')}}</small>
-                                                <input type="text" name="txtemailreg" class="form-control"
-                                                    placeholder="Correo" value="{{ old('txtemailreg') }}">
-                                                <small
-                                                    class="fst-italic text-danger">{{$errors->first('txtemailreg')}}</small>
-                                                <input type="text" name="txttelreg" class="form-control"
-                                                    placeholder="Teléfono" value="{{ old('txttelreg') }}">
-                                                <small
-                                                    class="fst-italic text-danger">{{$errors->first('txttelreg')}}</small>
-                                                <input type="text" name="txtpasswordreg" class="form-control"
-                                                    placeholder="Contraseña" value="{{ old('txtpasswordreg') }}">
-                                                <small
-                                                    class="fst-italic text-danger">{{$errors->first('txtpasswordreg')}}</small>
-                                            </div>
+                                    
+                                        <p class="text-center fw-bold fs-5">¡Bienvenido! Por favor, ingrese sus datos :D</p>
+                                    
+                                        <!-- Nombre -->
+                                        <div class="mb-3">
+                                            <label for="txtnamereg" class="form-label">
+                                                <i class="fas fa-user fa-fw me-2"></i>Nombre
+                                            </label>
+                                            <input type="text" id="txtnamereg" name="txtnamereg" class="form-control"
+                                                placeholder="Ingresa tu nombre" value="{{ old('txtnamereg') }}">
+                                            <small class="fst-italic text-danger">{{$errors->first('txtnamereg')}}</small>
                                         </div>
-
-                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+                                    
+                                        <!-- Apellido -->
+                                        <div class="mb-3">
+                                            <label for="txtapellidoreg" class="form-label">
+                                                <i class="fas fa-user fa-fw me-2"></i>Apellido
+                                            </label>
+                                            <input type="text" id="txtapellidoreg" name="txtapellidoreg" class="form-control"
+                                                placeholder="Ingresa tu apellido" value="{{ old('txtapellidoreg') }}">
+                                            <small class="fst-italic text-danger">{{$errors->first('txtapellidoreg')}}</small>
+                                        </div>
+                                    
+                                        <!-- Correo -->
+                                        <div class="mb-3">
+                                            <label for="txtemailreg" class="form-label">
+                                                <i class="fas fa-envelope fa-fw me-2"></i>Correo
+                                            </label>
+                                            <input type="email" id="txtemailreg" name="txtemailreg" class="form-control"
+                                                placeholder="Ingresa tu correo electrónico" value="{{ old('txtemailreg') }}">
+                                            <small class="fst-italic text-danger">{{$errors->first('txtemailreg')}}</small>
+                                        </div>
+                                    
+                                        <!-- Teléfono -->
+                                        <div class="mb-3">
+                                            <label for="txttelreg" class="form-label">
+                                                <i class="fas fa-phone fa-fw me-2"></i>Teléfono
+                                            </label>
+                                            <input type="tel" id="txttelreg" name="txttelreg" class="form-control"
+                                                placeholder="Ingresa tu número de teléfono" value="{{ old('txttelreg') }}">
+                                            <small class="fst-italic text-danger">{{$errors->first('txttelreg')}}</small>
+                                        </div>
+                                    
+                                        <!-- Contraseña -->
+                                        <div class="mb-3">
+                                            <label for="txtpasswordreg" class="form-label">
+                                                <i class="fas fa-lock fa-fw me-2"></i>Contraseña
+                                            </label>
+                                            <input type="password" id="txtpasswordreg" name="txtpasswordreg" class="form-control"
+                                                placeholder="Ingresa tu contraseña" value="{{ old('txtpasswordreg') }}">
+                                            <small class="fst-italic text-danger">{{$errors->first('txtpasswordreg')}}</small>
+                                        </div>
+                                    
+                                        <!-- Botón de registro -->
+                                        <div class="d-flex justify-content-center mt-4">
+                                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                                <i class="fas fa-user-plus me-2"></i>Registrarse
+                                            </button>
                                         </div>
                                     </form>
+                                    
 
                                 </div>
                             </div>

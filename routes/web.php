@@ -7,6 +7,7 @@ use App\Http\Controllers\ModalController;
 use App\Http\Controllers\VueloControlador;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\LoginController;
 
 //Rutas varias
 
@@ -34,7 +35,7 @@ Route::get('/busquedaAvanzada', [ControladorVistas::class, 'busquedaAvanzada'])-
 //Login
 
 Route::get('/login', [ControladorVistas::class, 'login'])->name('login');
-Route::post('/enviarLogin', [controladorVistas::class, 'procesarCliente'])->name('rutaenviar');
+Route::post('/enviarLogin', [LoginController::class, 'login'])->name('rutaenviar');
 Route::get('/auth/password', [ControladorVistas::class, 'passwordAuth'])->name('auth.password');
 Route::post('/enviarPassword', [controladorVistas::class, 'procesarPassword'])->name('rutaenviarpassword');
 

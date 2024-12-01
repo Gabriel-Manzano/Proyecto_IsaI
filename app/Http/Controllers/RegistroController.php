@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash; // Importa Hash
 use Carbon\Carbon;
 use App\Http\Requests\validadorRegistro;
 
@@ -31,12 +32,15 @@ class RegistroController extends Controller
      */
     public function store(validadorRegistro $request)
     {
+        // Cifra la contraseña antes de guardarla
+        $hashedPassword = Hash::make($request->input('txtpasswordreg'));
+
         DB::table('usuarios')->insert([
             "nombre" => $request->input('txtnamereg'),
             "apellido" => $request->input('txtapellidoreg'),
             "correo" => $request->input('txtemailreg'),
             "telefono" => $request->input('txttelreg'),
-            "password" => $request->input('txtpasswordreg'),
+            "password" => $hashedPassword, // Guarda la contraseña cifrada
             "rol" => 'Usuario',
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now(),
@@ -80,3 +84,4 @@ class RegistroController extends Controller
         //
     }
 }
+
