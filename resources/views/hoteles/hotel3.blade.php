@@ -84,51 +84,48 @@
                 </section>
             </main>
             @include('modal.modalReserva')
-            <script>
-                /*  function initMap() {
-                                                                  // Ubicación específica (Ejemplo: Ciudad de Querétaro, México)
-                                                                  const queretaro = { lat: 20.5937, lng: -100.3928 };
-                                                                
-                                                                  // Crea el mapa y lo centra en la ubicación
-                                                                  const map = new google.maps.Map(document.getElementById("map"), {
-                                                                    zoom: 12,
-                                                                    center: queretaro,
-                                                                  });
-                                                                
-                                                                  // Agrega un marcador en la ubicación
-                                                                  new google.maps.Marker({
-                                                                    position: queretaro,
-                                                                    map: map,
-                                                                    title: "Querétaro",
-                                                                  });
-                                                                } */
-            </script>
+           <script>
+    function initMap() {
+        const queretaro = { lat: 20.5937, lng: -100.3928 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 12,
+            center: queretaro,
+        });
+        new google.maps.Marker({
+            position: queretaro,
+            map: map,
+            title: "Querétaro",
+        });
+    }
+</script> 
 
 
 
 
-            <div class="container-fluid">
-                <div class="row ">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <div class="card">
-                            <div class="card-body d-flex align-items-center">
-                                <!-- Imagen -->
-                                <div class="me-3">
-                                    <img src="{{ asset('assets/logo.jpg') }}" style="width: 75px; border-radius: 50%;"
-                                        alt="logo">
-                                </div>
-                                <!-- Nombre y comentario -->
-                                <div>
-                                    <h5 class="card-title mb-1">Gabriel Manzano</h5>
-                                    <p class="card-text mb-2">With supporting text below as a natural lead-in to additional
-                                        content.</p>
-                                    <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+
+                <div class="container-fluid">
+                    <div class="row ">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <div class="card">
+                                <div class="card-body d-flex align-items-center">
+                                    <!-- Imagen -->
+                                    <div class="me-3">
+                                        <img src="{{ asset('assets/logo.jpg') }}" style="width: 75px; border-radius: 50%;"
+                                            alt="logo">
+                                    </div>
+                                    <!-- Nombre y comentario -->
+                                    <div>
+                                        <h5 class="card-title mb-1">Gabriel Manzano</h5>
+                                        <p class="card-text mb-2">With supporting text below as a natural lead-in to
+                                            additional
+                                            content.</p>
+                                        <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     </body>
