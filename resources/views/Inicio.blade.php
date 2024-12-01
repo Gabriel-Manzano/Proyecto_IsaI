@@ -14,7 +14,7 @@
     @session('exito')
         <script>
             Swal.fire({
-                title: "¡Login exitoso!",
+                title: "¡Inicio de sesión exitoso!",
                 icon: "success"
             });
         </script>

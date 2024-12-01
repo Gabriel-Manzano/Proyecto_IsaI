@@ -29,7 +29,7 @@
                                         <h4 class="mt-1 mb-5 pb-1" style="font-style: italic;">Turista sin maps</h4>
                                     </div>
 
-                                    <form action="/enviarRegistro" method="POST">
+                                    <form action="/register" method="POST"> 
 
                                         @csrf
 
@@ -42,10 +42,22 @@
                                                     placeholder="Nombre" value="{{ old('txtnamereg') }}">
                                                 <small
                                                     class="fst-italic text-danger">{{$errors->first('txtnamereg')}}</small>
+                                                <input type="text" name="txtapellidoreg" class="form-control"
+                                                    placeholder="Apellido" value="{{ old('txtapellidoreg') }}">
+                                                <small
+                                                    class="fst-italic text-danger">{{$errors->first('txtapellidoreg')}}</small>
                                                 <input type="text" name="txtemailreg" class="form-control"
                                                     placeholder="Correo" value="{{ old('txtemailreg') }}">
                                                 <small
                                                     class="fst-italic text-danger">{{$errors->first('txtemailreg')}}</small>
+                                                <input type="text" name="txttelreg" class="form-control"
+                                                    placeholder="Teléfono" value="{{ old('txttelreg') }}">
+                                                <small
+                                                    class="fst-italic text-danger">{{$errors->first('txttelreg')}}</small>
+                                                <input type="text" name="txtpasswordreg" class="form-control"
+                                                    placeholder="Contraseña" value="{{ old('txtpasswordreg') }}">
+                                                <small
+                                                    class="fst-italic text-danger">{{$errors->first('txtpasswordreg')}}</small>
                                             </div>
                                         </div>
 
@@ -58,8 +70,8 @@
                             </div>
                             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                                 <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                    <h4 class="mb-4">We are more than just a company</h4>
-                                    <p class="small mb-0">Lorem ipsum dolor sit amet...</p>
+                                    <h4 class="mb-4">Registro</h4>
+                                    <p class="small mb-0">Ingrese sus datos para crear su cuenta</p>
                                 </div>
                             </div>
                         </div>

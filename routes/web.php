@@ -5,6 +5,7 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ControladorVistas;
 use App\Http\Controllers\ModalController;
 use App\Http\Controllers\VueloControlador;
+use App\Http\Controllers\RegistroController;
 
 Route::post('/reservar', [ModalController::class, 'reservar'])->name('reservar');
 
@@ -20,8 +21,10 @@ Route::post('/enviarLogin',[controladorVistas::class,'procesarCliente'])->name('
 Route::get('/auth/password', [ControladorVistas::class, 'passwordAuth'])->name('auth.password');
 Route::post('/enviarPassword',[controladorVistas::class,'procesarPassword'])->name('rutaenviarpassword');
 
-Route::get('/register', [ControladorVistas::class, 'register'])->name('register');
-Route::post('/enviarRegistro', [ControladorVistas::class, 'procesarRegistro'])->name('rutaenviarregistro');
+Route::get('/register', [RegistroController::class, 'index'])->name('rutaRegistro');
+Route::post('/register', [RegistroController::class, 'store'])->name('enviarRegistro');
+Route::get('/register/create', [RegistroController::class, 'create'])->name('rutaCrearRegistro');
+/* Route::post('/enviarRegistro', [ControladorVistas::class, 'procesarRegistro'])->name('rutaenviarregistro'); */
 
 Route::get('/busquedaAvanzada', [ControladorVistas::class, 'busquedaAvanzada'])->name('busquedaAvanzada');
 
@@ -33,6 +36,4 @@ Route::get('/hotels', [HotelController::class, 'index'])->name('busqueda');
 Route::get('/vuelos', [VueloControlador::class, 'index'])->name('busqueda_vuelos');
 
 
-Route::get('/Administrator', function () {
-    return view('Administrador'); // Asegúrate de que la vista exista en `resources/views/gestionUsuario.blade.php`
-});
+Route::get('/Administrator', function () {return view('Administrador');});

@@ -23,7 +23,10 @@ class validadorRegistro extends FormRequest
     {
         return [
             'txtnamereg' => 'required|string|min:3|max:50',
-            'txtemailreg' => 'required|email:rfc,dns'
+            'txtapellidoreg' => 'required|string|min:3|max:50',
+            'txtemailreg'=>'required|email:rfc,dns',
+            'txttelreg' => 'required|min:10|max:15',
+            'txtpasswordreg' => 'required|string|min:8|max:20|regex:/[A-Za-z]/|regex:/[0-9]/'
         ];
     }
 }

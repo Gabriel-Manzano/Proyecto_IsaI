@@ -7,7 +7,6 @@ use App\Http\Requests\validadorPassword;
 use App\Http\Requests\validadorPerfil;
 use App\Http\Requests\validadorRegistro;
 use Illuminate\Http\Request;
-use Validator;
 
 class ControladorVistas extends Controller
 {
@@ -35,6 +34,8 @@ class ControladorVistas extends Controller
     {
         return view('auth.password');
     }
+
+
 
     // Nuevas vistas en /auth/passwords
     public function confirm()
@@ -68,24 +69,14 @@ class ControladorVistas extends Controller
         return view('auth.password');
     }
 
+
+
+
+    
     // Nuevas vistas en la carpeta raíz
     public function busquedaAvanzada()
     {
         return view('busquedaAvanzada');
-    }
-
-    // Muestra la vista de registro
-    public function register()
-    {
-        return view('auth.register');
-    }
-
-    // Procesa el formulario de registro
-    public function procesarRegistro(validadorRegistro $peticionValidada)
-    {
-        $usuario = $peticionValidada->input('txtnamereg');
-        session()->Flash('exito', 'Se ha registrado al usuario ' . $usuario.' con éxito.');
-        return to_route('login');
     }
 
     // Reenvía el correo de verificación
