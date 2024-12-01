@@ -75,6 +75,9 @@ class HotelController extends Controller
     $stars = $request->input('stars');
     $type = $request->input('type');
     $amenities = $request->input('amenities');
+    $habitaciones = $request->input('habitaciones');
+    $huespedes = $request->input('huespedes');
+    $distancia = $request->input('distancia');
 
     // Inicia la consulta base
     $query = Hotel::query();
@@ -104,6 +107,15 @@ class HotelController extends Controller
         foreach ($amenities as $amenity) {
             $query->whereJsonContains('amenities', $amenity); // Filtrado por campo JSON
         }
+    }
+    if ($habitaciones) {
+        $query->where('habitaciones', $habitaciones);
+    }
+    if ($huespedes) {
+        $query->where('huespedes', $huespedes);
+    }
+    if ($distancia) {
+        $query->where('distancia', $distancia);
     }
 
     // Ejecuta la consulta y obtiene los resultados

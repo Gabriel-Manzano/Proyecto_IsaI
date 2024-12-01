@@ -50,6 +50,10 @@
                     <option value="Gimnasio" {{ in_array('Gimnasio', (array)request('amenities', [])) ? 'selected' : '' }}>Gimnasio</option>
                 </select>
 
+                <input type="number" name="habitaciones" placeholder="Habitaciones" value="{{ request('habitaciones') }}">
+                <input type="number" name="huespedes" placeholder="Huéspedes" value="{{ request('huespedes') }}">
+                <input type="number" name="distancia" placeholder="Distancia al centro (m)" value="{{ request('distancia') }}">
+
                 <div class="button-group">
                     <button type="submit">Aplicar Filtros</button>
                     <!-- Redirigir a la ruta base sin filtros -->
@@ -71,6 +75,9 @@
                         <th>Estrellas</th>
                         <th>Tipo</th>
                         <th>Amenidades</th>
+                        <th>Número de habitaciones</th>
+                        <th>Número de huéspedes</th>
+                        <th>Distancia al centro (m)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,6 +94,9 @@
                                 <td>{{ $hotel->stars }}</td>
                                 <td>{{ $hotel->type }}</td>
                                 <td>{{ implode(', ', $hotel->amenities) }}</td>
+                                <td>{{ $hotel->habitaciones }}</td>
+                                <td>{{ $hotel->huespedes }}</td>
+                                <td>{{ $hotel->distancia }}</td>
                             </tr>
                         @endforeach
                     @endif

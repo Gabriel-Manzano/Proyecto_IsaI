@@ -10,6 +10,7 @@ class VueloControlador extends Controller
     public function index(Request $request)
     {
         $query = Vuelo::query();
+        $pasajeros = $request->input('pasajeros');
 
         // Filtros
         if ($request->filled('origin')) {
@@ -38,6 +39,9 @@ class VueloControlador extends Controller
         // Filtro por Aerolínea
         if ($request->filled('aerolinea')) {
             $query->where('aerolinea', $request->aerolinea);
+        }
+        if ($pasajeros) {
+            $query->where('pasajeros', $pasajeros);
         }
 
         // Obtener los vuelos filtrados

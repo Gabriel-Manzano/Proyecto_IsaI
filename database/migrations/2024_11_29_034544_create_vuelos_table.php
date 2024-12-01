@@ -25,6 +25,7 @@ class CreateVuelosTable extends Migration
             $table->integer('escalas')->default(0); // Número de escalas, predeterminado en 0
             $table->string('origen');  // Origen del vuelo
             $table->string('destino'); // Destino del vuelo
+            $table->integer('pasajeros')->default(0); // Pasajeros del vuelo
             $table->timestamps();
         });
     }

@@ -26,7 +26,8 @@ class VuelosSeeder extends Seeder
                 'duracion_vuelo' => 150,
                 'escalas' => 0,
                 'origen' => 'Madrid',
-                'destino' => 'Barcelona'
+                'destino' => 'Barcelona',
+                'pasajeros' => '60'
             ],
             [
                 'numero_vuelo' => 'VY2345',
@@ -38,7 +39,8 @@ class VuelosSeeder extends Seeder
                 'duracion_vuelo' => 150,
                 'escalas' => 1,
                 'origen' => 'Barcelona',
-                'destino' => 'Paris'
+                'destino' => 'Paris',
+                'pasajeros' => '800'
             ],
             [
                 'numero_vuelo' => 'UX3456',
@@ -50,7 +52,8 @@ class VuelosSeeder extends Seeder
                 'duracion_vuelo' => 135,
                 'escalas' => 0,
                 'origen' => 'Madrid',
-                'destino' => 'Roma'
+                'destino' => 'Roma',
+                'pasajeros' => '600'
             ],
             [
                 'numero_vuelo' => 'IB4567',
@@ -62,7 +65,8 @@ class VuelosSeeder extends Seeder
                 'duracion_vuelo' => 240,
                 'escalas' => 1,
                 'origen' => 'Madrid',
-                'destino' => 'Londres'
+                'destino' => 'Londres',
+                'pasajeros' => '750'
             ],
             [
                 'numero_vuelo' => 'VY5678',
@@ -74,7 +78,8 @@ class VuelosSeeder extends Seeder
                 'duracion_vuelo' => 150,
                 'escalas' => 0,
                 'origen' => 'Barcelona',
-                'destino' => 'Londres'
+                'destino' => 'Londres',
+                'pasajeros' => '150'
             ]
         ]);
     }

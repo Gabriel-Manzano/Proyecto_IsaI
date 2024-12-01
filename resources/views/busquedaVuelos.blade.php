@@ -43,6 +43,8 @@
             <!-- Filtro por Aerolínea (campo de texto para nombre de aerolínea) -->
             <input type="text" name="aerolinea" placeholder="Aerolinea" value="{{ request('aerolinea') }}">
 
+            <input type="number" name="pasajeros" placeholder="Pasajeros" value="{{ request('pasajeros') }}">
+
             <div class="button-group">
                 <button type="submit">Aplicar Filtros</button>
                 <a href="{{ route('busqueda_vuelos') }}" class="button-group">
@@ -57,7 +59,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Vuelo ID</th>
+                    <th>Número de vuelo</th>
                     <th>Aerolínea</th>
                     <th>Hora de Salida</th>
                     <th>Hora de Llegada</th>
@@ -66,6 +68,7 @@
                     <th>Escalas</th>
                     <th>Origen</th>
                     <th>Destino</th>
+                    <th>Número de Pasajeros</th>
                 </tr>
             </thead>
             <tbody>
@@ -85,6 +88,7 @@
                             <td>{{ $flight->escalas }}</td>
                             <td>{{ $flight->origen }}</td>
                             <td>{{ $flight->destino }}</td>
+                            <td>{{ $flight->pasajeros }}</td>
                         </tr>
                     @endforeach
                 @endif

@@ -17,6 +17,9 @@ class CreateHotelsTable extends Migration
             $table->string('type');
             $table->json('amenities');
             $table->timestamps();
+            $table->integer('habitaciones');
+            $table->integer('huespedes');
+            $table->integer('distancia');
         });
     }
 
