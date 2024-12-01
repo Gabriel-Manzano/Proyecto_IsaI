@@ -35,8 +35,6 @@ class ControladorVistas extends Controller
         return view('auth.password');
     }
 
-
-
     // Nuevas vistas en /auth/passwords
     public function confirm()
     {
@@ -68,10 +66,6 @@ class ControladorVistas extends Controller
     {
         return view('auth.password');
     }
-
-
-
-
     
     // Nuevas vistas en la carpeta raíz
     public function busquedaAvanzada()

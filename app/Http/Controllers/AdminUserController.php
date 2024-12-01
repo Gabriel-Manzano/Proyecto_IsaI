@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use App\Http\Requests\validadorRegistro;
+use App\Http\Requests\ValidadorUsuarios;
 
-class RegistroController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $consultaRegistro = DB::table('usuarios')->get();
-        return view('register', compact('consultaRegistro'));
+        $consultaUsuarios = DB::table('usuarios')->get();
+        return view('administrador', compact('consultaUsuarios'));
     }
 
     /**
@@ -23,29 +23,27 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        return view('Register');
+        return view('Administrador');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(validadorRegistro $request)
+    public function store(validadorUsuarios $request)
     {
         DB::table('usuarios')->insert([
-            "nombre" => $request->input('txtnamereg'),
-            "apellido" => $request->input('txtapellidoreg'),
-            "correo" => $request->input('txtemailreg'),
-            "telefono" => $request->input('txttelreg'),
-            "password" => $request->input('txtpasswordreg'),
-            "rol" => 'Usuario',
+            "nombre" => $request->input('txtnombreadm'),
+            "apellido" => $request->input('txtapellidoadm'),
+            "correo" => $request->input('txtemailadm'),
+            "telefono" => $request->input('txttelefonoadm'),
+            "password" => $request->input('txtpasswordadm'),
+            "rol" => $request->input('rol'),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now(),
         ]);
 
-        $usuario = $request->input('txtnamereg');
-
-        session()->Flash('exito', 'Se guardó el usuario ' . $usuario);
-        return to_route('login');
+        session()->Flash('exito');
+        return to_route('rutaAdministrador');
     }
 
     /**
@@ -77,6 +75,9 @@ class RegistroController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('usuarios')->where('id', $id)->delete();
+
+        session()->Flash('exito');
+        return to_route('rutaAdministrador');
     }
 }

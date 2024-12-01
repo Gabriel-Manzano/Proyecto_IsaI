@@ -10,17 +10,15 @@
 @section('content')
 
 <header>
-    <nav>
-        <center>
-            <br><br><br><br><br><br>
-            <h1>
-                <ul class="nav__links">
-                    <a href="{{ route('busqueda') }}">Búsqueda Avanzada de hoteles</a>
-                    <a href="{{ route('busqueda_vuelos') }}">Búsqueda Avanzada de vuelos</a>
-                </ul>
-            </h1>
-        </center>
-    </nav>
+    <center>
+        <br>
+        <h1>
+            <ul class="nav__links">
+                <a href="{{ route('busqueda') }}">Búsqueda Avanzada de hoteles</a>
+                <a href="{{ route('busqueda_vuelos') }}">Búsqueda Avanzada de vuelos</a>
+            </ul>
+        </h1>
+    </center>
 </header>
 
 <!-- Contenedor principal con filtros y tabla -->
@@ -32,14 +30,16 @@
             <input type="text" name="destination" placeholder="Destino" value="{{ request('destination') }}">
             <input type="number" name="min_price" placeholder="Precio mínimo" value="{{ request('min_price') }}">
             <input type="number" name="max_price" placeholder="Precio máximo" value="{{ request('max_price') }}">
-            <input type="datetime-local" name="departure_time" placeholder="Hora de salida" value="{{ request('departure_time') }}">
-            <input type="datetime-local" name="arrival_time" placeholder="Hora de llegada" value="{{ request('arrival_time') }}">
+            <input type="datetime-local" name="departure_time" placeholder="Hora de salida"
+                value="{{ request('departure_time') }}">
+            <input type="datetime-local" name="arrival_time" placeholder="Hora de llegada"
+                value="{{ request('arrival_time') }}">
             <select name="stops">
                 <option value="">Escalas (Cualquiera)</option>
                 <option value="0" {{ request('stops') == '0' ? 'selected' : '' }}>Sin escalas</option>
                 <option value="1" {{ request('stops') == '1' ? 'selected' : '' }}>Con escalas</option>
             </select>
-            
+
             <!-- Filtro por Aerolínea (campo de texto para nombre de aerolínea) -->
             <input type="text" name="aerolinea" placeholder="Aerolinea" value="{{ request('aerolinea') }}">
 
@@ -98,4 +98,3 @@
 </div>
 
 @endsection
-

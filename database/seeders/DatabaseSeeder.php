@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call(HotelsTableSeeder::class);
         $this->call(VuelosSeeder::class);
+        $this->call(UsuariosSeeder::class);
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
