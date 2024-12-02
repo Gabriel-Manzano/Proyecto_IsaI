@@ -13,6 +13,10 @@ use App\Http\Controllers\ReservacionController;
 use App\Http\Controllers\AdminHotelController;
 use App\Http\Controllers\AdminVuelosController;
 use App\Http\Controllers\AdminCondicionController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ReporteController;
+use App\Http\Controllers\UserReportController;
+
 
 //Rutas varias
 
@@ -100,4 +104,12 @@ Route::post('/carrito/agregar', [CarritoController::class, 'agregar'])->name('ca
 Route::get('/carrito', [CarritoController::class, 'ver'])->name('carrito.ver');
 Route::delete('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
 
+//Reportes
+
+Route::get('/reportes/hoteles/pdf', [ReportController::class, 'generarPDF'])->name('reporte.hoteles.pdf');
+Route::get('/reportes/hoteles/excel', [ReportController::class, 'generarExcel'])->name('reporte.hoteles.excel');
+Route::get('/reportes/vuelos/pdf', [ReporteController::class, 'generarReporteVuelosPDF'])->name('reportes.vuelos.pdf');
+Route::get('/reportes/vuelos/excel', [ReporteController::class, 'generarReporteVuelosExcel'])->name('reportes.vuelos.excel');
+Route::get('/reportes/usuarios/pdf', [UserReportController::class, 'generarPDF'])->name('reporte.usuarios.pdf');
+Route::get('/reportes/usuarios/excel', [UserReportController::class, 'generarExcel'])->name('reporte.usuarios.excel');
 

@@ -1,5 +1,5 @@
 @extends('layouts.plantilla1')
-
+<head><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></head>
 @section('content')
 
     <head>
@@ -34,8 +34,8 @@
                 </div>
             @endif
 
-            <table class="table table-bordered table-striped">
-                <thead>
+            <table class="table class="table table-striped table-bordered table-hover table-sm">
+                <thead class="table-info">
                     <tr>
                         <th>Nombre</th>
                         <th>Correo</th>
@@ -45,7 +45,7 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-primary">
                     @foreach ($carrito as $item)
                         <tr>
                             <td>{{ $item->nombre }}</td>

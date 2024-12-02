@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Http\Requests\validadorAdminHotel;
+use App\Models\Hotel;
 
 class AdminHotelController extends Controller
 {
@@ -15,7 +16,9 @@ class AdminHotelController extends Controller
     public function index()
     {
         $consultaHoteles = DB::table('hotels')->get();
-        return view('administradorHoteles', compact('consultaHoteles'));
+        $numeroHoteles = Hotel::count();
+        return view('administradorHoteles', compact('consultaHoteles', 'numeroHoteles'));
+
     }
 
     /**

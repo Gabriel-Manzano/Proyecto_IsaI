@@ -191,52 +191,41 @@
         </div>
 
         <!-- Panel de Control -->
-        <div class="panelControl p-4 shadow-sm rounded">
+        <div class="panelControl p-4 shadow-sm rounded d-flex flex-column align-items-center">
             <h3 class="mb-3">Panel de Control</h3>
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Reservas Activas</h5>
-                            <p class="card-text">32</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Hoteles Ocupados</h5>
-                            <p class="card-text">5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Ingresos Totales</h5>
-                            <p class="card-text">$150,000</p>
-                        </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Vuelos Registrados</h5>
+                        <p class="card-text">{{ $numeroVuelos }}</p>
                     </div>
                 </div>
             </div>
+            <div class="row text-center g-4">
+            </div>
+            <div class="mt-4">
+                <a href="{{ route('reportes.vuelos.pdf') }}" class="btn btn-danger me-2">Exportar PDF</a>
+                <a href="{{ route('reportes.vuelos.excel') }}" class="btn btn-success">Exportar Excel</a>
+            </div>
         </div>
-    </div>
-    <script>
-        function confirmarVuelo(vueloid) {
-            Swal.fire({
-                title: "Quieres eliminar este vuelo?",
-                showCancelButton: true,
-                confirmButtonText: "Eliminar",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById(`deleteForm${vueloid}`).submit();
-                }
-            });
-        }
-    </script>
 
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function confirmarVuelo(vueloid) {
+                Swal.fire({
+                    title: "Quieres eliminar este vuelo?",
+                    showCancelButton: true,
+                    confirmButtonText: "Eliminar",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById(`deleteForm${vueloid}`).submit();
+                    }
+                });
+            }
+        </script>
+
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 @endsection

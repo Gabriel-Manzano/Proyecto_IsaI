@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\vuelo;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Http\Requests\validadorAdminVuelos;
@@ -15,7 +16,8 @@ class AdminVuelosController extends Controller
     public function index()
     {
         $consultaVuelos = DB::table('vuelos')->get();
-        return view('administradorVuelos', compact('consultaVuelos'));
+        $numeroVuelos = Vuelo::count();
+        return view('administradorVuelos', compact('consultaVuelos', 'numeroVuelos'));
     }
 
     /**

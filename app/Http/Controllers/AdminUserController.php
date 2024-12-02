@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
@@ -16,7 +17,9 @@ class AdminUserController extends Controller
     public function index()
     {
         $consultaUsuarios = DB::table('usuarios')->get();
-        return view('administrador', compact('consultaUsuarios'));
+        $numeroUsuarios = Usuario::count();
+        return view('administrador', compact('consultaUsuarios', 'numeroUsuarios'));
+
     }
 
     /**
@@ -31,7 +34,6 @@ class AdminUserController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(validadorUsuarios $request)
-    
     {
 
         $hashedPassword = Hash::make($request->input('txtpasswordadm'));

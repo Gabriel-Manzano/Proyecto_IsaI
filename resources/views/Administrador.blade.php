@@ -120,36 +120,26 @@
             </table>
         </div>
 
+
         <!-- Panel de Control -->
-        <div class="panelControl p-4 shadow-sm rounded">
+        <div class="panelControl p-4 shadow-sm rounded d-flex flex-column align-items-center">
             <h3 class="mb-3">Panel de Control</h3>
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Reservas Activas</h5>
-                            <p class="card-text">32</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Hoteles Ocupados</h5>
-                            <p class="card-text">5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Ingresos Totales</h5>
-                            <p class="card-text">$150,000</p>
-                        </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Usuarios Registrados</h5>
+                        <p class="card-text">{{ $numeroUsuarios }}</p>
                     </div>
                 </div>
             </div>
+            <div class="row text-center g-4">
+            </div>
+            <div class="mt-4">
+                <a href="{{ route('reporte.usuarios.pdf') }}" class="btn btn-danger">Exportar PDF</a>
+                <a href="{{ route('reporte.usuarios.excel') }}" class="btn btn-success">Exportar Excel</a>
+            </div>
         </div>
+    </div>
     </div>
     <script>
         function confirmarUsuario(usuarioid) {
