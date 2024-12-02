@@ -34,7 +34,6 @@ Route::get('/busquedaAvanzada', [ControladorVistas::class, 'busquedaAvanzada'])-
 
 //Login
 
-
 Route::get('/login', [ControladorVistas::class, 'login'])->name('login');
 Route::post('/enviarLogin', [LoginController::class, 'login'])->name('rutaenviar');
 Route::get('/auth/password', [ControladorVistas::class, 'passwordAuth'])->name('auth.password');

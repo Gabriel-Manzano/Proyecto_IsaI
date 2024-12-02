@@ -28,9 +28,8 @@
             <a href="{{ route('faqs') }}">FAQ's</a>
             <a href="{{ route('comparar') }}">Comparaciones</a>
             <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('perfil') }}">Perfil</a>  
-            <a href="{{ route('busqueda') }}">Búsqueda Avanzada</a>                
-
+            <a href="{{ route('perfil') }}">Perfil</a>
+            <a href="{{ route('busqueda') }}">Búsqueda Avanzada</a>
         </ul>
     </nav>
 
