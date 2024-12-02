@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Http\Requests\ValidadorUsuarios;
-use Illuminate\Support\Facades\Hash; // Importa Hash
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
@@ -41,7 +41,7 @@ class AdminUserController extends Controller
             "apellido" => $request->input('txtapellidoadm'),
             "correo" => $request->input('txtemailadm'),
             "telefono" => $request->input('txttelefonoadm'),
-            "password" => $hashedPassword, // Guarda la contraseña cifrada
+            "password" => $hashedPassword,
             "rol" => $request->input('rol'),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now(),

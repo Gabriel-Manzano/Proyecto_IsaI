@@ -49,6 +49,9 @@
 
                 <h2>Información de la propiedad</h2>
                 <p>Este icónico hotel, fundado en 1887, combina el lujo clásico con la rica historia de Singapur.</p>
+                <p>Precio por noche: $150</p>
+                <strong>Disponibilidad de habitaciones: No Disponible</strong>
+                <p>Políticas de cancelación: Parcialmente Reembolsable</p>
                 <ul class="amenities">
                     <li>🏊 Alberca</li>
                     <li>🕒 Recepción 24h</li>
