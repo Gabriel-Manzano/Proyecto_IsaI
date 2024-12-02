@@ -44,7 +44,7 @@
 
             <section class="info">
                 <h1>Cheval Blanc París</h1>
-                <p class="rating">⭐⭐⭐⭐⭐<span>9 Muy bueno</span></p>
+                <p class="rating">⭐⭐⭐⭐⭐ <span>9 Muy bueno</span></p>
                 <p>A los huéspedes les gustó: <strong>Personal amable</strong></p>
 
                 <h2>Información de la propiedad</h2>

@@ -40,8 +40,8 @@
             <div class="carousel-item">
                 <img src="{{ asset('images/hoteles/hotel-2.jpeg') }}" alt="Hotel 2" />
                 <div class="hotel-description">
-                    <h3>Hotel Vernazza</h3>
-                    <p>Vernazza, Italy</p>
+                    <h3>Nihi Sumba</h3>
+                    <p>East Nusa Tenggara, Indonesia.</p>
                     <div class="stars">
                         <i class="ri-star-fill"></i>
                         <i class="ri-star-fill"></i>
@@ -49,14 +49,14 @@
                         <i class="ri-star-fill"></i>
                         <i class="ri-star-half-fill"></i>
                     </div>
-                    <a href="{{ route('hotel.show', ['id' => 2]) }}">Hotel Santorini</a>
+                    <a href="{{ route('hotel.show', ['id' => 2]) }}">Nihi Sumba</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('images/hoteles/hotel-3.jpeg') }}" alt="Hotel 3" />
                 <div class="hotel-description">
-                    <h3>Hotel San Francisco</h3>
-                    <p>San Francisco, USA</p>
+                    <h3>Raffles Hotel</h3>
+                    <p> Singapore, Singapore</p>
                     <div class="stars">
                         <i class="ri-star-fill"></i>
                         <i class="ri-star-fill"></i>
@@ -64,7 +64,7 @@
                         <i class="ri-star-fill"></i>
                         <i class="ri-star-half-fill"></i>
                     </div>
-                    <a href="{{ route('hotel.show', ['id' => 3]) }}">Hotel Santorini</a>
+                    <a href="{{ route('hotel.show', ['id' => 3]) }}">Raffles Hotel</a>
                 </div>
             </div>
             <!-- Agrega más elementos aquí -->
@@ -91,9 +91,9 @@
     </script>
     <x-hotel-card image="images/hoteles/hotel-1.jpeg" name="Cheval Blanc París" location="París, Francia." rating="5"
         link="{{ route('hotel.show', ['id' => 1]) }}" />
-    <x-hotel-card image="images/hoteles/hotel-2.jpeg" name="Hotel Vernazza" location="San Francisco, USA" rating="4"
+    <x-hotel-card image="images/hoteles/hotel-2.jpeg" name="Nihi Sumba" location="East Nusa Tenggara, Indonesia." rating="4"
         link="{{ route('hotel.show', ['id' => 2]) }}" />
-    <x-hotel-card image="images/hoteles/hotel-3.jpeg" name="Hotel San Francisco" location="San Francisco, USA" rating="3"
+    <x-hotel-card image="images/hoteles/hotel-3.jpeg" name="Raffles Hotel" location=" Singapore, Singapore" rating="3"
         link="{{ route('hotel.show', ['id' => 3]) }}" />
 
 </body>
