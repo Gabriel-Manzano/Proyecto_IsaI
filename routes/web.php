@@ -8,6 +8,8 @@ use App\Http\Controllers\VueloControlador;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\ReservacionController;
 use App\Http\Controllers\AdminHotelController;
 use App\Http\Controllers\AdminVuelosController;
 use App\Http\Controllers\AdminCondicionController;
@@ -20,7 +22,7 @@ Route::get('/comparativa-hoteles', [ControladorVistas::class, 'comparar'])->name
 
 //Perfil
 
-Route::get('/perfil', [ControladorVistas::class, 'perfil'])->name('perfil');
+Route::get('/perfil', [ReservacionController::class, 'index'])->name('perfil');
 Route::post('/enviarPerfil', [controladorVistas::class, 'procesarPerfil'])->name('rutaenviarperfil');
 
 //Cambio de contraseña
@@ -91,3 +93,11 @@ Route::get('/hotels', [HotelController::class, 'index'])->name('busqueda');
 //Vuelos
 
 Route::get('/vuelos', [VueloControlador::class, 'index'])->name('busqueda_vuelos');
+
+//carrito
+
+Route::post('/carrito/agregar', [CarritoController::class, 'agregar'])->name('carrito.agregar');
+Route::get('/carrito', [CarritoController::class, 'ver'])->name('carrito.ver');
+Route::delete('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar');
+
+

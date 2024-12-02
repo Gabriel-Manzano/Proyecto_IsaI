@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HotelsTableSeeder::class);
         $this->call(VuelosSeeder::class);
         $this->call(UsuariosSeeder::class);
+        $this->call(ReservacionesSeeder::class);
         $this->call(CondicionesSeeder::class);
         User::factory()->create([
             'name' => 'Test User',

@@ -29,6 +29,10 @@
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('perfil') }}">Perfil</a>
             <a href="{{ route('busqueda') }}">Búsqueda Avanzada</a>
+            <a href="{{ route('carrito.ver') }}" class="nav-link">
+                🛒 Carrito <span class="badge bg-secondary">{{ session('carrito') ? count(session('carrito')) : 0 }}</span>
+            </a>
+            
         </ul>
     </nav>
 

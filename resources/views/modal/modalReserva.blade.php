@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{ route('reservar') }}" method="POST">
+        <form action="{{ route('carrito.agregar') }}" method="POST">
           @csrf
           <!-- Información Personal del Huésped -->
           <h5>Información Personal del Huésped</h5>
@@ -118,7 +118,7 @@
             </div>
           </div>
 
-          <!-- Métodos de Pago -->
+{{--           <!-- Métodos de Pago -->
           <h5 class="mt-4">Métodos de Pago</h5>
           <div class="row mb-3">
             <div class="col-md-6">
@@ -143,11 +143,11 @@
                 <option value="efectivo">Pago en Efectivo</option>
               </select>
             </div>
-          </div>
+          </div> --}}
 
           <!-- Botón de envío -->
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+            <button type="submit" class="btn btn-primary">Agregar al Carrito</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           </div>
         </form>
