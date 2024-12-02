@@ -9,6 +9,7 @@ use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\ReservacionController;
 
 //Rutas varias
 
@@ -18,7 +19,7 @@ Route::get('/comparativa-hoteles', [ControladorVistas::class, 'comparar'])->name
 
 //Perfil
 
-Route::get('/perfil', [ControladorVistas::class, 'perfil'])->name('perfil');
+Route::get('/perfil', [ReservacionController::class, 'index'])->name('perfil');
 Route::post('/enviarPerfil', [controladorVistas::class, 'procesarPerfil'])->name('rutaenviarperfil');
 
 //Cambio de contraseña

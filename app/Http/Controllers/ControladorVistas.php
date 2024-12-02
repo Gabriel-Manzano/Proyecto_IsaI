@@ -25,10 +25,7 @@ class ControladorVistas extends Controller
         return view('comparar');
     }
 
-    public function perfil()
-    {
-        return view('perfil');
-    }
+
 
     public function password()
     {
