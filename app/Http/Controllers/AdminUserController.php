@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Http\Requests\ValidadorUsuarios;
+use Illuminate\Support\Facades\Hash; // Importa Hash
 
 class AdminUserController extends Controller
 {
@@ -30,13 +31,17 @@ class AdminUserController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(validadorUsuarios $request)
+    
     {
+
+        $hashedPassword = Hash::make($request->input('txtpasswordadm'));
+
         DB::table('usuarios')->insert([
             "nombre" => $request->input('txtnombreadm'),
             "apellido" => $request->input('txtapellidoadm'),
             "correo" => $request->input('txtemailadm'),
             "telefono" => $request->input('txttelefonoadm'),
-            "password" => $request->input('txtpasswordadm'),
+            "password" => $hashedPassword, // Guarda la contraseña cifrada
             "rol" => $request->input('rol'),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now(),

@@ -20,6 +20,8 @@ class CreateHotelsTable extends Migration
             $table->integer('habitaciones');
             $table->integer('huespedes');
             $table->integer('distancia');
+            $table->string('politicas');
+            $table->string('disponibilidad');
         });
     }
 

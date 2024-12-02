@@ -50,6 +50,7 @@
                 <h2>Información de la propiedad</h2>
                 <p>Este hotel de cinco estrellas fue diseñado para ofrecer un ambiente que evoca un hogar sofisticado
                 </p>
+                <p>Precio por noche: $1,050</p>
                 <ul class="amenities">
                     <li>🏊 Alberca</li>
                     <li>🕒 Recepción 24h</li>

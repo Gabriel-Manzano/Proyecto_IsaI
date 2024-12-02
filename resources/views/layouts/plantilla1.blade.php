@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    
+
     <script src="{{ asset('js/search.js') }}"></script>
     <!-- CDN de Remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet" />
@@ -25,7 +25,7 @@
         <ul class="nav__links">
             <a href="{{ route('inicio') }}">Home</a>
             <a href="{{ route('faqs') }}">FAQ's</a>
-            <a href="{{ route('comparar') }}">Comparaciones</a>
+            <!-- <a href="{{ route('comparar') }}">Comparaciones</a> -->
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('perfil') }}">Perfil</a>
             <a href="{{ route('busqueda') }}">Búsqueda Avanzada</a>
@@ -37,7 +37,7 @@
         @yield('content')
     </main>
 
-    
+
 
     <!-- Scripts personalizados -->
     @stack('scripts')
@@ -55,4 +55,5 @@
         </div>
     </div>
 </footer>
+
 </html>
