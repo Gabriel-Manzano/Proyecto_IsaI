@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class ControladorVistas extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except('inicio','login');
+    }
     public function inicio()
     {
         return view('Inicio');
@@ -110,4 +115,7 @@ class ControladorVistas extends Controller
         session()->Flash('exito');
         return to_route('password');
     }
+
+
 }
+
