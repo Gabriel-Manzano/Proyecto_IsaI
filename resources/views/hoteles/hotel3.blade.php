@@ -29,13 +29,13 @@
             <main class="hotel-container">
                 <section class="gallery">
                     <div class="main-image">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Hotel 2" />
+                        <img src="{{ asset('images/hoteles/hotel-3.jpeg') }}" alt="Hotel 2" />
                     </div>
                     <div class="thumbnail-images">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Imagen del hotel">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Imagen del hotel">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Habitación del hotel">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Terraza del hotel">
+                        <img src="{{ asset('images/hoteles/hotel-3-2.jpeg') }}" alt="Imagen del hotel">
+                        <img src="{{ asset('images/hoteles/hotel-3-3.jpeg') }}" alt="Imagen del hotel">
+                        <img src="{{ asset('images/hoteles/hotel-3-4.jpeg') }}" alt="Habitación del hotel">
+                        <img src="{{ asset('images/hoteles/hotel-3-5.jpeg') }}" alt="Terraza del hotel">
                     </div>
                 </section>
 
@@ -51,7 +51,6 @@
                     <p>Hotel con servicios de spa cerca de Acueducto de Santiago de Querétaro</p>
                     <ul class="amenities">
                         <li>🏊 Alberca</li>
-                        <li>🐾 Acepta mascotas</li>
                         <li>🕒 Recepción 24h</li>
                         <li>💆 Spa</li>
                         <li>🧺 Lavandería</li>

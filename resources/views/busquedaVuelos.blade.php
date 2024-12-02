@@ -1,5 +1,5 @@
 @extends('layouts.plantilla1')
-
+<head><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></head>
 @section('title', 'Búsqueda Avanzada de vuelos')
 
 @push('styles')
@@ -100,7 +100,7 @@
     <div class="table-container mt-4">
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover table-sm">
-                <thead class="table-light">
+                <thead class="table-primary">
                     <tr>
                         <th>Número de vuelo</th>
                         <th>Aerolínea</th>

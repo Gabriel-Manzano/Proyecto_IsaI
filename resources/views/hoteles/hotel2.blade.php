@@ -29,13 +29,13 @@
             <main class="hotel-container">
                 <section class="gallery">
                     <div class="main-image">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Hotel 2" />
+                        <img src="{{ asset('images/hoteles/hotel-2.jpeg') }}" alt="Hotel 2" />
                     </div>
                     <div class="thumbnail-images">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Imagen del hotel">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Imagen del hotel">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Habitación del hotel">
-                        <img src="{{ asset('images/hoteles/hotel-2.jpg') }}" alt="Terraza del hotel">
+                        <img src="{{ asset('images/hoteles/hotel-2-2.jpeg') }}" alt="Imagen del hotel">
+                        <img src="{{ asset('images/hoteles/hotel-2-3.jpeg') }}" alt="Imagen del hotel">
+                        <img src="{{ asset('images/hoteles/hotel-2-4.jpeg') }}" alt="Habitación del hotel">
+                        <img src="{{ asset('images/hoteles/hotel-2-5.jpeg') }}" alt="Terraza del hotel">
                     </div>
                 </section>
 
@@ -50,12 +50,9 @@
                     <h2>Información de la propiedad</h2>
                     <p>Hotel con servicios de spa cerca de Acueducto de Santiago de Querétaro</p>
                     <ul class="amenities">
-                        <li>🏊 Alberca</li>
                         <li>🐾 Acepta mascotas</li>
                         <li>🕒 Recepción 24h</li>
-                        <li>💆 Spa</li>
                         <li>🧺 Lavandería</li>
-                        <li>❄️ Aire acondicionado</li>
                     </ul>
                     <aside class="reservation">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reservarModal">

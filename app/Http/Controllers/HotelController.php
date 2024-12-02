@@ -12,11 +12,11 @@ class HotelController extends Controller
         // Simulando la obtención de datos del hotel, puedes reemplazarlo con consultas a la base de datos
         $hotels = [
             1 => [
-                'name' => 'Hotel Santorini',
-                'location' => 'Santorini, Greece',
+                'name' => 'Cheval Blanc París',
+                'location' => 'París, Francia.',
                 'stars' => 5,
-                'description' => 'Un hotel de lujo con vista al mar.',
-                'images' => ['hotel-1.jpg', 'hotel-2.jpg', 'hotel-3.jpg'],
+                'description' => 'Este hotel de cinco estrellas fue diseñado para ofrecer un ambiente que evoca un hogar sofisticado.',
+                'images' => ['hotel-1.jpeg', 'hotel-1-2.jpeg', 'hotel-1-3.jpeg'],
                 'amenities' => ['Buffet', 'Bar', 'Piscina', 'Spa', 'Actividades al aire libre'],
                 'activities' => ['Yoga', 'Excursiones', 'Deportes acuáticos'],
                 'comments' => [
