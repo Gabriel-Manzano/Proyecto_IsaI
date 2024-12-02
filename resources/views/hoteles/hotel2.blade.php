@@ -50,6 +50,9 @@
                 <h2>Información de la propiedad</h2>
                 <p>Nihi Sumba es un exclusivo resort ubicado en la isla indonesia de Sumba, que ofrece una experiencia
                     aislada y lujosa.</p>
+                <p>Precio por noche: $500</p>
+                <strong>Disponibilidad de habitaciones: Disponible</strong>
+                <p>Políticas de cancelación: No reembolso</p>
                 <ul class="amenities">
                     <li>🐾 Acepta mascotas</li>
                     <li>🕒 Recepción 24h</li>

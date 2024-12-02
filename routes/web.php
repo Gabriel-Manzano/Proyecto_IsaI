@@ -10,6 +10,9 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\ReservacionController;
+use App\Http\Controllers\AdminHotelController;
+use App\Http\Controllers\AdminVuelosController;
+use App\Http\Controllers\AdminCondicionController;
 
 //Rutas varias
 
@@ -53,6 +56,31 @@ Route::get('/Administrador', [AdminUserController::class, 'index'])->name('rutaA
 Route::post('/Administrador', [AdminUserController::class, 'store'])->name('enviarUsuarioAdm');
 Route::get('/Administrador/create', [AdminUserController::class, 'create'])->name('rutaCrearUsuarioAdm');
 Route::delete('/Administrador/{id}', [AdminUserController::class, 'destroy'])->name('rutaeliminarUsuarioAdm');
+
+//Administradores (Hoteles)
+
+Route::get('/AdministradorHoteles', [AdminHotelController::class, 'index'])->name('rutaAdministradorHotel');
+Route::post('/AdministradorHoteles', [AdminHotelController::class, 'store'])->name('enviarHotelAdm');
+Route::get('/AdministradorHoteles/create', [AdminHotelController::class, 'create'])->name('rutaCrearHotelAdm');
+Route::delete('/AdministradorHoteles/{id}', [AdminHotelController::class, 'destroy'])->name('rutaeliminarHotelAdm');
+Route::get('/AdministradorHoteles/{id}/edit',[AdminHotelController::class,'edit'])->name('rutaenviarHotelAdm');
+Route::put('/AdministradorHoteles/{id}', [AdminHotelController::class, 'update'])->name('rutaactualizarHotelAdm');
+
+//Administradores (Vuelos)
+
+Route::get('/AdministradorVuelos', [AdminVuelosController::class, 'index'])->name('rutaAdministradorVuelo');
+Route::post('/AdministradorVuelos', [AdminVuelosController::class, 'store'])->name('enviarVueloAdm');
+Route::get('/AdministradorVuelos/create', [AdminVuelosController::class, 'create'])->name('rutaCrearVueloAdm');
+Route::delete('/AdministradorVuelos/{id}', [AdminVuelosController::class, 'destroy'])->name('rutaeliminarVueloAdm');
+Route::get('/AdministradorVuelos/{id}/edit',[AdminVuelosController::class,'edit'])->name('rutaenviarVueloAdm');
+Route::put('/AdministradorVuelos/{id}', [AdminVuelosController::class, 'update'])->name('rutaactualizarVueloAdm');
+
+//Administradores (Condiciones)
+
+Route::get('/AdministradorCondiciones', [AdminCondicionController::class, 'index'])->name('rutaAdministradorCondicion');
+Route::get('/AdministradorCondiciones/create', [AdminCondicionController::class, 'create'])->name('rutaCrearCondicionAdm');
+Route::get('/AdministradorCondiciones/{id}/edit',[AdminCondicionController::class,'edit'])->name('rutaenviarCondicionAdm');
+Route::put('/AdministradorCondiciones/{id}', [AdminCondicionController::class, 'update'])->name('rutaactualizarCondicionAdm');
 
 //Hoteles
 

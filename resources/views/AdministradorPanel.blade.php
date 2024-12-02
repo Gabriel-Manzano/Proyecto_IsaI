@@ -120,6 +120,85 @@
             </table>
         </div>
 
+        <!-- Gestión de Hoteles -->
+        <div class="gestionHoteles p-4 mb-4 shadow-sm rounded">
+            <h3 class="mb-3">Gestión de Hoteles</h3>
+
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="hotelName" class="form-label">Nombre del Hotel</label>
+                        <input type="text" id="hotelName" class="form-control" placeholder="Nombre del hotel">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="hotelLocation" class="form-label">Ubicación</label>
+                        <input type="text" id="hotelLocation" class="form-control" placeholder="Ubicación del hotel">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Guardar Hotel</button>
+            </form>
+
+            <!-- Tabla de Hoteles -->
+            <table class="table table-striped table-hover mt-4">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Ubicación</th>
+                        <th>Precio</th>
+                        <th>Estrellas</th>
+                        <th>Tipo</th>
+                        <th>Número de habitaciones</th>
+                        <th>Número de huéspedes</th>
+                        <th>Distacia al centro</th>
+                        <th>Políticas</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                </thead>
+                
+            </table>
+        </div>
+
+        <!-- Gestión de Vuelos -->
+        <div class="gestionHoteles p-4 mb-4 shadow-sm rounded">
+            <h3 class="mb-3">Gestión de Vuelos</h3>
+
+            <form>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="hotelName" class="form-label">Número de vuelo</label>
+                        <input type="text" id="hotelName" class="form-control" placeholder="Número de vuelo">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="hotelLocation" class="form-label">Destino</label>
+                        <input type="text" id="hotelLocation" class="form-control" placeholder="Destino">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Guardar Vuelo</button>
+            </form>
+
+            <!-- Tabla de Vuelos -->
+            <table class="table table-striped table-hover mt-4">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Número</th>
+                        <th>Destino</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Vuelo 4</td>
+                        <td>Ciudad de México</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">Editar</button>
+                            <button class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
         <!-- Panel de Control -->
         <div class="panelControl p-4 shadow-sm rounded">
             <h3 class="mb-3">Panel de Control</h3>
@@ -156,10 +235,23 @@
             Swal.fire({
                 title: "Quieres eliminar este usuario?",
                 showCancelButton: true,
-                confirmButtonText: "Eliminar",
+                confirmButtonText: "Save",
             }).then((result) => {
                 if (result.isConfirmed) {
                     document.getElementById(`delatefom${usuarioid}`).submit();
+                }
+            });
+        }
+    </script>
+    <script>
+        function confirmarHotel(hotelid) {
+            Swal.fire({
+                title: "Quieres eliminar este hotel?",
+                showCancelButton: true,
+                confirmButtonText: "Save",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(`delatefom${hotelid}`).submit();
                 }
             });
         }
